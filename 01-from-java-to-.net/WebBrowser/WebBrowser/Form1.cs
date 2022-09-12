@@ -26,5 +26,16 @@ namespace WebBrowser
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string url = textBox1.Text;
+            if (url.Trim() == "")
+            {
+                url = "www.duckduckgo.com";
+            }
+            webBrowser1.Navigate(url);
+            this.Text = "Estamos en: " + url;
+        }
     }
 }
