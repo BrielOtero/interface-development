@@ -5,6 +5,9 @@ namespace _04_exercise
 {
     internal class Program
     {
+        public bool playAll;
+
+
         static void paintMenu(string[] options, int option)
         {
             string titulo = "MENU";
@@ -31,6 +34,7 @@ namespace _04_exercise
         static void menu()
         {
             int option = 0;
+            bool playAll;
             int select = -1;
             string[] options = { "1-. Launch dice", "2-. Guess number", "3-. Football pools", "4-. Play all", "5-. Exit" };
             Console.CursorVisible = false;
@@ -38,6 +42,8 @@ namespace _04_exercise
 
             do
             {
+
+                playAll = false;
                 ConsoleKeyInfo tecla = Console.ReadKey();
                 switch (tecla.Key)
                 {
@@ -50,7 +56,7 @@ namespace _04_exercise
                         break;
 
                     case ConsoleKey.Enter:
-                        select = option;
+                            select = option;
                         break;
 
                     case ConsoleKey.Escape:
@@ -58,35 +64,50 @@ namespace _04_exercise
                         break;
 
                 }
-                paintMenu(options, option);
-                //Console.WriteLine("Option selected: {0}", select+1);
-                if (tecla.Key == ConsoleKey.Enter)
-                {
+
+                    paintMenu(options, option);
+        
                     switch (select)
                     {
                         case 0:
+                            select = 0;
+                            launchDice(playAll);
 
-                            launchDice();
 
+                            if (playAll)
+                            {
+                                goto case 1;
+                            }
                             break;
                         case 1:
-                            guessNum();
+                            guessNum(playAll);
+
+                            if (playAll)
+                            {
+
+                                goto case 2;
+                            }
                             break;
 
                         case 2:
                             footballPool();
-                            break;
 
-                        default:
+                            playAll = false;
+                            break;
+                        case 3:
+                            playAll = true;
+                            goto case 0;
+
+                        case 4:
                             break;
                     }
+                Console.WriteLine("options.Length - 1)
 
-                }
             } while (select != options.Length - 1);
 
         }
 
-        private static void launchDice()
+        private static void launchDice(bool playAll)
         {
             Console.Clear();
 
@@ -142,10 +163,11 @@ namespace _04_exercise
             Console.WriteLine("You guess {0} numbers", hit);
 
 
-            returnToMenu();
+            returnToMenu(playAll);
+
         }
 
-        static void guessNum()
+        static void guessNum(bool playAll)
         {
             int randNum = 0;
             int userNum = 0;
@@ -193,6 +215,7 @@ namespace _04_exercise
                 else
                 {
                     Console.Clear();
+                    wasGuessed = true;
                     Console.WriteLine("You're right!!");
                     Console.WriteLine("The number was {0}", randNum);
 
@@ -202,14 +225,15 @@ namespace _04_exercise
                 if (tries == 0)
                 {
                     Console.Clear();
+                    wasGuessed = true;
                     Console.WriteLine("You're Lost! :(");
                     Console.WriteLine("The number was {0}", randNum);
                 }
+            }
 
-                if (tries <= 0)
-                {
-                    returnToMenu();
-                }
+            if (tries <= 0)
+            {
+                returnToMenu(playAll);
             }
         }
 
@@ -218,48 +242,57 @@ namespace _04_exercise
             Random rand = new Random();
             int randNum;
             string value = "";
-            ?string[] results = new string[14];
+            string[] results = new string[14];
 
+            Console.Clear();
+            Console.WriteLine("Football Pool");
             for (int i = 0; i < results.Length; i++)
             {
                 randNum = rand.Next(101);
 
                 switch (randNum)
                 {
-                    case  < 60:
+                    case < 60:
                         value = "1";
                         break;
 
-                    case >= 60 and  <= 85:
+                    case >= 60 and <= 85:
                         value = "x";
                         break;
 
                     case > 85:
                         value = "2";
                         break;
-                 
+
                 }
 
-                results[i]=value;
+                results[i] = value;
+
+                Console.WriteLine("{0,2} | {1,2}", i + 1, value);
+
             }
+            returnToMenu(false);
 
         }
 
-        static void returnToMenu()
+        static void returnToMenu(bool playAll)
         {
-            Console.WriteLine("Press space to go to the menu...");
+            Console.WriteLine("Press any key to go to the menu...");
+            Console.ReadKey();
 
-            if (Console.ReadKey().Key == ConsoleKey.Spacebar)
+            if (!playAll)
             {
                 menu();
             }
+
 
         }
 
         static void Main(string[] args)
         {
             menu();
-
+            Console.Clear();
+            Console.ReadLine();
         }
     }
 }
