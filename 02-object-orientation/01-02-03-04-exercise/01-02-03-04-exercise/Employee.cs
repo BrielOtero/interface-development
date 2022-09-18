@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01_02_03_04_exercise
+{
+    internal class Employee : Person
+    {
+        public override double TaxAuthorities()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
