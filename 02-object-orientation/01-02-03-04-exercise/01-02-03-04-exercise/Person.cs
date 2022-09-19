@@ -32,7 +32,21 @@ namespace _01_02_03_04_exercise
                 age = value;
             }
         }
-        public string Dni { get => dni; set => dni = value; }
+        public string Dni
+        {
+            get
+            {
+                int rest = Convert.ToInt16(dni) % 23;
+                string lettersDni = "TRWAGMYFPDXBNJZSQVHLCKE";
+
+                return lettersDni[rest].ToString();
+            }
+
+            set
+            {
+                dni = value.Substring(0, value.Length - 2);
+            }
+        }
 
         public Person(string name, string surname, int age, string dni)
         {
@@ -48,13 +62,13 @@ namespace _01_02_03_04_exercise
         }
 
 
-        public virtual void showValues()
+        public virtual void ShowValues()
         {
             Console.WriteLine("Name: {0}\nSurname: {1}\nAge: {2}\nDni: {3}\n", Name, Surname, Age, Dni);
         }
 
 
-        public virtual void insertValues()
+        public virtual void InsertValues()
         {
             Console.WriteLine("Insert the Name: ");
             Name = Console.ReadLine();

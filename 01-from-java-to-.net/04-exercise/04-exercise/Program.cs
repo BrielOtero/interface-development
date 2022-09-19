@@ -5,7 +5,7 @@ namespace _04_exercise
 {
     internal class Program
     {
-        static void paintMenu(string[] options, int option)
+        public static void PaintMenu(string[] options, int option)
         {
             string titulo = "MENU";
 
@@ -26,14 +26,14 @@ namespace _04_exercise
             }
         }
 
-        static void menu()
+        public static void Menu()
         {
             int option = 0;
             bool returnToMenu;
             int select = -1;
             string[] options = { "1-. Launch dice", "2-. Guess number", "3-. Football pools", "4-. Play all", "5-. Exit" };
             Console.CursorVisible = false;
-            paintMenu(options, option);
+            PaintMenu(options, option);
             ConsoleKeyInfo tecla;
 
             do
@@ -62,7 +62,7 @@ namespace _04_exercise
 
                 }
 
-                paintMenu(options, option);
+                PaintMenu(options, option);
 
 
 
@@ -170,7 +170,7 @@ namespace _04_exercise
 
         }
 
-        static void guessNum(bool returnTuMenu)
+       private static void guessNum(bool returnTuMenu)
         {
             int randNum = 0;
             int userNum = 0;
@@ -240,7 +240,7 @@ namespace _04_exercise
             }
         }
 
-        static void footballPool(bool returnTuMenu)
+       private static void footballPool(bool returnTuMenu)
         {
             Random rand = new Random();
             int randNum;
@@ -278,14 +278,14 @@ namespace _04_exercise
 
         }
 
-        static void returnToMenu(bool returnTuMenu)
+      private static void returnToMenu(bool returnTuMenu)
         {
             Console.WriteLine("Press any key to continue..");
             Console.ReadKey();
 
             if (returnTuMenu)
             {
-                menu();
+                Menu();
             }
 
 
@@ -294,7 +294,7 @@ namespace _04_exercise
 
         static void Main(string[] args)
         {
-            menu();
+            Menu();
 
         }
     }

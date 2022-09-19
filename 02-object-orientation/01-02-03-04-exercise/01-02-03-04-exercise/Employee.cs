@@ -10,6 +10,24 @@ namespace _01_02_03_04_exercise
 {
     internal class Employee : Person
     {
+
+        public Employee(string name, string surname, int age, string dni, double salary, int irpf, string phoneNumber)
+            : base(name, surname, age, dni)
+        {
+
+            Salary = salary;
+            Irpf = irpf;
+            PhoneNumber = phoneNumber;
+        }
+
+        public Employee()
+            :base(null,null,0,null)
+        {
+            Salary = 0;
+            Irpf = 0;
+            PhoneNumber = null;
+        }
+
         private double salary;
         private int irpf;
         private string phoneNumber;
@@ -47,16 +65,43 @@ namespace _01_02_03_04_exercise
             set => phoneNumber = value;
         }
 
-        public override void showValues()
+        public override void ShowValues()
         {
-            base.showValues();
+            base.ShowValues();
             Console.WriteLine("Salary: {0}\nIrpf: {1}\nPhone Number: {2}\n", Salary, Irpf, PhoneNumber);
         }
 
-        public override void showValues(int show)
+        public void ShowValues(int show)
         {
-           
-            Console.WriteLine("Salary: {0}\nIrpf: {1}\nPhone Number: {2}\n", Salary, Irpf, PhoneNumber);
+            string message="";
+
+            switch (show)
+            {
+                case 0:
+                    message = "Name: " + this.Name;
+                    break;
+                case 1:
+                    message = "Surname: " + this.Surname;
+                    break;
+                case 2:
+                    message = "Age: " + this.Age;
+                    break;
+                case 3:
+                    message = "Dni: " + this.Dni;
+                    break;
+                case 4:
+                    message = "Salary: " + this.Salary;
+                    break;
+                case 5:
+                    message = "Irpf: " + this.Irpf;
+                    break;
+                case 6:
+                    message = "Phone Number: " + this.PhoneNumber;
+                    break;
+
+            }
+
+            Console.WriteLine(message);
         }
 
         public override double TaxAuthorities()
