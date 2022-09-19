@@ -61,7 +61,7 @@ namespace _01_02_03_04_exercise
 
         public override double TaxAuthorities()
         {
-            throw new NotImplementedException();
+            return (Irpf * Salary) / 100;
         }
     }
 }
