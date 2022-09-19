@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+#nullable disable
+
 namespace _01_02_03_04_exercise
 {
     abstract class Person
@@ -46,12 +48,13 @@ namespace _01_02_03_04_exercise
         }
 
 
-        public virtual void ShowPerson()
+        public virtual void showValues()
         {
             Console.WriteLine("Name: {0}\nSurname: {1}\nAge: {2}\nDni: {3}\n", Name, Surname, Age, Dni);
         }
 
-        public virtual void InsertPerson()
+
+        public virtual void insertValues()
         {
             Console.WriteLine("Insert the Name: ");
             Name = Console.ReadLine();
