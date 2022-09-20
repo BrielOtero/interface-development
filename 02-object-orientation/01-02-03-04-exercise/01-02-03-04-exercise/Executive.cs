@@ -34,6 +34,14 @@ namespace _01_02_03_04_exercise
             }
         }
 
+        public Executive(string name, string surname, int age, string dni, string departmentName, int dependents)
+            : base(name, surname, age, dni)
+        {
+
+            this.departmentName = departmentName;
+            this.dependents = dependents;
+        }
+
         public override double TaxAuthorities()
         {
             return 0.3 * winPasta;
@@ -67,8 +75,6 @@ namespace _01_02_03_04_exercise
 
         }
 
-
-
         double IGoosePasta.WinPasta(double profitEUR)
         {
             if (profitEUR < 0)
@@ -86,4 +92,4 @@ namespace _01_02_03_04_exercise
 
     }
 }
-}
+

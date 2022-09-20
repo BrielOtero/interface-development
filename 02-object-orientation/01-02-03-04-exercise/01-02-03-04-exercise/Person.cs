@@ -44,7 +44,7 @@ namespace _01_02_03_04_exercise
 
             set
             {
-                dni = value.Substring(0, value.Length - 2);
+                dni = value.Substring(0, value.Length - 1);
             }
         }
 

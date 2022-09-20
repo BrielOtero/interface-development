@@ -10,6 +10,9 @@ namespace _01_02_03_04_exercise
 {
     internal class Employee : Person
     {
+        private double salary;
+        private int irpf;
+        private string phoneNumber;
 
         public Employee(string name, string surname, int age, string dni, double salary, int irpf, string phoneNumber)
             : base(name, surname, age, dni)
@@ -28,9 +31,9 @@ namespace _01_02_03_04_exercise
             PhoneNumber = null;
         }
 
-        private double salary;
-        private int irpf;
-        private string phoneNumber;
+        public Employee(string name, string surname, int age, string dni) : base(name, surname, age, dni)
+        {
+        }
 
         public double Salary
         {
