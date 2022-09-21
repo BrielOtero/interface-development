@@ -39,7 +39,7 @@ namespace _01_02_03_04_exercise
         {
 
             this.departmentName = departmentName;
-            this.dependents = dependents;
+            Dependents = dependents;
         }
 
         public override double TaxAuthorities()
@@ -60,13 +60,13 @@ namespace _01_02_03_04_exercise
         public override void ShowValues()
         {
             base.ShowValues();
-            Console.WriteLine("Department Menu: {0}\nProfit: {1}\nDependents: {2}\n", departmentName, profit, dependents);
+            Console.WriteLine("Department Name: {0}\nProfit: {1}\nDependents: {2}\n", departmentName, profit, dependents);
         }
 
         public override void InsertValues()
         {
             base.InsertValues();
-            Console.WriteLine("Insert the Department Menu: ");
+            Console.WriteLine("Insert the Department Name: ");
             departmentName = Console.ReadLine();
 
             Console.WriteLine("Insert the Dependents: ");

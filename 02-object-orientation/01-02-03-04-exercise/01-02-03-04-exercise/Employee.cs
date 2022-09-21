@@ -14,7 +14,7 @@ namespace _01_02_03_04_exercise
         private int irpf;
         private string phoneNumber;
 
-        public Employee(string name, string surname, int age, string dni, double salary, int irpf, string phoneNumber)
+        public Employee(string name, string surname, int age, string dni, double salary, string phoneNumber)
             : base(name, surname, age, dni)
         {
 
@@ -24,15 +24,11 @@ namespace _01_02_03_04_exercise
         }
 
         public Employee()
-            :base(null,null,0,null)
+            : base("", "", 0, "")
         {
             Salary = 0;
             Irpf = 0;
-            PhoneNumber = null;
-        }
-
-        public Employee(string name, string surname, int age, string dni) : base(name, surname, age, dni)
-        {
+            PhoneNumber = "";
         }
 
         public double Salary
@@ -76,7 +72,7 @@ namespace _01_02_03_04_exercise
 
         public void ShowValues(int show)
         {
-            string message="";
+            string message = "";
 
             switch (show)
             {

@@ -36,15 +36,30 @@ namespace _01_02_03_04_exercise
         {
             get
             {
-                int rest = Convert.ToInt16(dni) % 23;
-                string lettersDni = "TRWAGMYFPDXBNJZSQVHLCKE";
+                if (dni != "")
+                {
+                    int rest = Convert.ToInt32(dni) % 23;
+                    string lettersDni = "TRWAGMYFPDXBNJZSQVHLCKE";
 
-                return lettersDni[rest].ToString();
+                    return dni + lettersDni[rest].ToString();
+                }
+                else
+                {
+                    return dni;
+                }
             }
 
             set
             {
-                dni = value.Substring(0, value.Length - 1);
+                if (value.Length > 0)
+                {
+                    dni = value.Substring(0, 8);
+
+                }
+                else
+                {
+                    dni = value;
+                }
             }
         }
 
