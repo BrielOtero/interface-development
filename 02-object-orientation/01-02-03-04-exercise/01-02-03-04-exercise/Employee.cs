@@ -54,7 +54,7 @@ namespace _01_02_03_04_exercise
             }
         }
 
-        public int Irpf { get => irpf; set => irpf = value; }
+        public int Irpf { get => irpf; }
         public string PhoneNumber
         {
             get

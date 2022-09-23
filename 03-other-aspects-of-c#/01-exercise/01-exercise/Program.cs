@@ -5,61 +5,55 @@ namespace _01_exercise
 {
     internal class Program
     {
-        private static void askValues(out string ip, out int ram)
+        private static void askValues(Hashtable computers,out string ip, out int ram)
         {
-            bool error = false;
+            bool correct = true;
             ip = "";
-            ram = 0;
             IPAddress ipAdress;
 
             do
             {
-                if (error)
+                if (!correct)
                 {
                     Console.WriteLine("\nPlease insert a valid ip\n");
                 }
 
-                error = false;
+                correct = true;
 
                 Console.WriteLine("Insert the IP");
                 ip = Console.ReadLine();
 
-                error = IPAddress.TryParse(ip, out ipAdress);
+                correct = IPAddress.TryParse(ip, out ipAdress);
 
-                Console.WriteLine(ip);
+                if (computers.Contains(ip))
+                {
+                    correct = false;
+                }
 
-
-            } while (error);
+            } while (!correct);
 
 
             do
             {
 
-                if (error)
+                if (!correct)
                 {
                     Console.WriteLine("\nPlease insert a valid ram size\n");
                 }
 
-                error = false;
+                correct = false;
 
-                try
-                {
-                    Console.WriteLine("Insert the ram size in GB");
-                    ram = Convert.ToInt16(Console.ReadLine());
-                }
-                catch (FormatException)
-                {
-                    error = true;
-                }
-                catch (OverflowException)
-                {
-                    error = true;
 
+                Console.WriteLine("Insert the ram size in GB");
+                correct = Int32.TryParse(Console.ReadLine(), out ram);
+
+                if (ram < 0)
+                {
+                    correct = false;
                 }
 
-            } while (error);
 
-            Console.WriteLine(ram);
+            } while (!correct);
 
         }
 
@@ -67,8 +61,7 @@ namespace _01_exercise
         static void Main(string[] args)
         {
             Hashtable computers = new Hashtable();
-
-            
+            bool correct = true;
 
             int menu;
             do
@@ -81,25 +74,55 @@ namespace _01_exercise
                 Console.WriteLine("3. Show all values");
                 Console.WriteLine("4. Show one value");
                 Console.WriteLine("5. Exit");
-                menu = Convert.ToInt16(Console.ReadLine());
+                correct= Int32.TryParse(Console.ReadLine(),out menu);
+                Console.WriteLine();
+
+                if (!correct)
+                {
+                    menu = 6;
+                }
+
+
                 switch (menu)
                 {
                     case 1:
-
-                        
-
-                        askValues(out string ip, out int ram);
-
-                        computers.Add(ip, ram);
+                        addValue(computers);
 
                         break;
                     case 2:
+                        if (computers.Count == 0)
+                        {
+                            Console.WriteLine("No values");
+                        }
+                        else
+                        {
+
+                        deleteValue(computers);
+                        }
 
                         break;
                     case 3:
+                        if (computers.Count == 0)
+                        {
+                            Console.WriteLine("No values");
+                        }
+                        else
+                        {
+
+                        showAllValues(computers);
+                        }
 
                         break;
                     case 4:
+                        if (computers.Count == 0)
+                        {
+                            Console.WriteLine("No values");
+                        }
+                        else
+                        {
+
+                        showValue(computers);
+                        }
 
                         break;
                     case 5:
@@ -114,6 +137,61 @@ namespace _01_exercise
                 }
             } while (menu != 5);
 
+        }
+
+
+
+        private static string askForIndex(Hashtable computers, string sentence)
+        {
+            Console.WriteLine($"Select the index for {sentence}: ");
+            bool correct = true;
+            string id = "";
+
+            do
+            {
+                if (!correct)
+                {
+                    Console.WriteLine("Please insert a valid value");
+                }
+
+                correct = true;
+                id = Console.ReadLine();
+
+                if (!computers.ContainsKey(id))
+                {
+                    correct = false;
+                }
+
+            } while (!correct);
+
+            return id;
+        }
+
+        private static void addValue(Hashtable computers)
+        {
+            askValues(computers,out string ip, out int ram);
+
+            computers.Add(ip, ram);
+        }
+
+        private static void deleteValue(Hashtable computers)
+        {
+            showAllValues(computers);
+
+            computers.Remove(askForIndex(computers, "Remove"));
+        }
+
+        private static void showValue(Hashtable computers)
+        {
+            Console.WriteLine(computers[askForIndex(computers, "Show")]);
+        }
+
+        private static void showAllValues(Hashtable computers)
+        {
+            foreach (DictionaryEntry de in computers)
+            {
+                Console.WriteLine($"ID {de.Key} {de.Value}");
+            }
         }
     }
 }
