@@ -9,42 +9,54 @@ namespace _01_02_03_04_exercise
     internal class PeopleManager
     {
 
-       public List<Person> people = new List<Person>();
+        public List<Person> people = new List<Person>();
 
-        int Position(int age)
+        public int Position(int age)
         {
 
-            Person p = people.Find(x => age > x.Age);
-
-            if (p != null)
+            for (int i = 0; i < people.Count; i++)
             {
-                return people.IndexOf(p);
-            }
-            else
-            {
-                return -1;
+                if (age > people[i].Age)
+                {
+                    return i+1;
+                }
             }
 
+            return 0;
         }
 
-        int Position(string surname)
+        public int Position(string surname)
         {
-            Person p = people.Find(x =>  x.Surname.Contains(surname));
 
-            if (p != null)
+            for (int i = 0; i < people.Count; i++)
             {
-                return people.IndexOf(p);
-            }
-            else
-            {
-                return -1;
+                if (people[i].Surname.StartsWith(surname))
+                {
+                    return i+1;
+                }
             }
 
+            return -1;
         }
 
-        bool Delete(int min, int max)
+        bool Delete(int max,int min= 0)
         {
-            return false;
+            try
+            {
+                people.RemoveRange(min, min - max);
+
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return false;
+            }
+            catch (ArgumentException)
+            {
+                return false;
+            }
+
+            return true;
+            
         }
     }
 
