@@ -110,16 +110,49 @@ namespace _01_02_03_04_exercise
 
         public override void InsertValues()
         {
-            Employee employee = new Employee("Manolo", "Sanchez", 22, "33144756C", 25000, "614567426");
-
             base.InsertValues();
+            bool correct = true;
 
-            Console.WriteLine("Insert the Salary: ");
-            Double.TryParse(Console.ReadLine(), out double salary);
-            Salary = salary;
+            do
+            {
+                if (!correct)
+                {
+                    Console.WriteLine("Insert a valid value");
+                }
 
-            Console.WriteLine("Insert the phone number: ");
-            PhoneNumber = Console.ReadLine();
+                Console.WriteLine("Insert the Salary: ");
+                correct = Double.TryParse(Console.ReadLine(), out double salary);
+
+                if (correct)
+                {
+                    Salary = salary;
+                }
+            } while (!correct);
+
+
+            do
+            {
+                if (!correct)
+                {
+                    Console.WriteLine("Insert a valid value");
+                }
+
+
+                Console.WriteLine("Insert the phone number: ");
+
+                correct = int.TryParse(Console.ReadLine(), out int num);
+
+                if (num.ToString().Length != 9)
+                {
+                    correct = false;
+                }
+
+                if (correct)
+                {
+                    PhoneNumber = num.ToString();
+                }
+
+            } while (!correct);
         }
     }
 }

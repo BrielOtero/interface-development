@@ -35,7 +35,7 @@ namespace _01_02_03_04_exercise
         }
 
         public Executive()
-            :this("","",0,"","",0)
+            : this("", "", 0, "", "", 0)
         {
         }
 
@@ -70,12 +70,23 @@ namespace _01_02_03_04_exercise
 
         public override void InsertValues()
         {
+
             base.InsertValues();
+            bool correct = true;
+
             Console.WriteLine("Insert the Department Name: ");
             departmentName = Console.ReadLine();
 
-            Console.WriteLine("Insert the Dependents: ");
-            dependents = Convert.ToInt32(Console.ReadLine());
+            do
+            {
+                if (!correct)
+                {
+                    Console.WriteLine("Insert a valid value");
+                }
+
+                Console.WriteLine("Insert the Dependents: ");
+                correct = int.TryParse(Console.ReadLine(), out dependents);
+            } while (!correct);
 
 
         }

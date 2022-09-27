@@ -1,4 +1,6 @@
-﻿using System.Xml.Linq;
+﻿#define CREATE
+
+using System.Xml.Linq;
 
 namespace _01_02_03_04_exercise
 {
@@ -13,59 +15,23 @@ namespace _01_02_03_04_exercise
         static void Main(string[] args)
         {
 
-            UserInterface userInterface = new UserInterface();
-            userInterface.Start();
+            UserInterface ui = new UserInterface();
 
-            //Employee employee = new Employee("Manolo", "Sanchez", 22, "33144756C", 25000, "614567426");
-            //Executive executive = new Executive("Paco", "Martinez", 50, "23148944E", "Contabilidad", 3);
-            //SpecialEmployee specialEmployee = new SpecialEmployee("Laura", "Rodriguez", 43, "31134576U", 30000, "634544456");
+#if CREATE
 
-            //int menu;
-            //do
-            //{
-            //    Console.WriteLine("Choose an option: ");
-            //    Console.WriteLine();
-            //    Console.WriteLine("1. Show values executive");
-            //    Console.WriteLine("2. Show values employee");
-            //    Console.WriteLine("3. Show values special employee");
-            //    Console.WriteLine("4. Exit");
-            //    menu = Convert.ToInt16(Console.ReadLine());
-            //    switch (menu)
-            //    {
-            //        case 1:
-            //            Console.Clear();
-            //            executive.ShowValues();
-            //            companyEarnings(executive);
-            //            Console.WriteLine("Tax Authorities: " + executive.TaxAuthorities());
+            Employee e1 = new Employee("Manolo", "Sanchez", 22, "33144756C", 25000, "614567426");
+            Employee e2 = new Employee("Pepe", "Otero", 25, "22664666C", 12000, "655443326");
+            Employee e3 = new Employee("Lucia", "Dominguez", 30, "33127566C", 42000, "8645554726");
+            Executive ex = new Executive("Paco", "Martinez", 50, "23148944E", "Contabilidad", 3);
 
+            ui.pm.people.Insert(ui.pm.Position(e1.Age), e1);
+            ui.pm.people.Insert(ui.pm.Position(e2.Age), e2);
+            ui.pm.people.Insert(ui.pm.Position(e3.Age), e3);
+            ui.pm.people.Insert(ui.pm.Position(ex.Age), ex);
+#endif
+            ui.Start();
 
-            //            break;
-            //        case 2:
-            //            Console.Clear();
-            //            employee.ShowValues();
-            //            Console.WriteLine("Tax Authorities: " + employee.TaxAuthorities());
-
-
-            //            break;
-            //        case 3:
-            //            Console.Clear();
-            //            specialEmployee.ShowValues();
-            //            companyEarnings(specialEmployee);
-            //            Console.WriteLine("Tax Authorities: " + specialEmployee.TaxAuthorities());
-
-
-            //            break;
-            //        case 4:
-            //            break;
-            //        default:
-            //            Console.WriteLine();
-            //            Console.WriteLine("+----------------+");
-            //            Console.WriteLine("| Invalid option |");
-            //            Console.WriteLine("+----------------+");
-            //            Console.WriteLine();
-            //            break;
-            //    }
-            //} while (menu != 4);
         }
+
     }
 }

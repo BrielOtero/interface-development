@@ -30,20 +30,20 @@ namespace _01_02_03_04_exercise
 
             for (int i = 0; i < people.Count; i++)
             {
-                if (people[i].Surname.StartsWith(surname))
+                if (people[i].Surname.ToLower().StartsWith(surname))
                 {
-                    return i+1;
+                    return i;
                 }
             }
 
             return -1;
         }
 
-       public bool Delete(int max,int min= 0)
+        public bool Delete(int max, int min = 0)
         {
             try
             {
-                people.RemoveRange(min, (max-min)+1);
+                people.RemoveRange(min, (max - min) + 1);
 
             }
             catch (ArgumentOutOfRangeException)
@@ -56,7 +56,7 @@ namespace _01_02_03_04_exercise
             }
 
             return true;
-            
+
         }
     }
 

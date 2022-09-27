@@ -91,11 +91,46 @@ namespace _01_02_03_04_exercise
             Console.WriteLine("Insert the Surname: ");
             Surname = Console.ReadLine();
 
-            Console.WriteLine("Insert the Age: ");
-            Age = Convert.ToInt32(Console.ReadLine());
+            bool correct = true;
 
-            Console.WriteLine("Insert the Dni: ");
-            Dni = Console.ReadLine();
+            do
+            {
+                if (!correct)
+                {
+                    Console.WriteLine("Insert a valid value");
+                }
+
+                Console.WriteLine("Insert the Age: ");
+                correct = int.TryParse(Console.ReadLine(), out int age);
+
+                if (correct)
+                {
+                    Age = age;
+                }
+
+            } while (!correct);
+
+            do
+            {
+                if (!correct)
+                {
+                    Console.WriteLine("Insert a valid value");
+                }
+                correct = true;
+                Console.WriteLine("Insert the Dni: ");
+                string dni = Console.ReadLine();
+
+                if (dni.Length != 9)
+                {
+                    correct = false;
+                }
+
+                if (correct)
+                {
+                    Dni = dni;
+                }
+
+            } while (!correct);
         }
 
 
