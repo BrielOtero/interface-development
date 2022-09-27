@@ -8,6 +8,7 @@ namespace _01_02_03_04_exercise
 {
     internal class UserInterface
     {
+        private PeopleManager pm = new PeopleManager();
         private string cutString(string value, int chars)
         {
 
@@ -80,10 +81,6 @@ namespace _01_02_03_04_exercise
                         select = option;
                         exit = true;
                         break;
-                    case ConsoleKey.Escape:
-                        select = options.Length - 1;
-                        break;
-
                 }
                 paintSubmenu(options, option, title);
                 Console.WriteLine($"{"Pulse ENTER to select",-30}");
@@ -99,10 +96,10 @@ namespace _01_02_03_04_exercise
         {
             int menu;
             int index;
-            string letter;
             string[] typesPerson = { "Employee", "Executive" };
             string[] mainMenu = { "Insert Person", "Delete Person in range", "Show all People", "Show a Person", "Exit" };
-            PeopleManager pm = new PeopleManager();
+            string[] yesNo = { "Yes", "No" };
+
 
             Employee e = new Employee("Manolo", "Sanchez", 22, "33144756C", 25000, "614567426");
             Executive ex = new Executive("Paco", "Martinez", 50, "23148944E", "Contabilidad", 3);
@@ -145,17 +142,57 @@ namespace _01_02_03_04_exercise
 
                         if (pm.people.Count >= 2)
                         {
-
+                            string letter;
                             int min;
                             int max;
 
-                            min = askMaxMin("minimum");
-                            max = askMaxMin("maximun");
+                            string[] menuPeople;
+                            List<string> listMenu = new List<string>();
 
-                            for (int i = min; i < max; i++)
+                            string menuTitle = $"|{"i",-3}|{"Name",-10}|{"Surname",-20}|{"Letter",-10}|";
+
+                            for (int i = 0; i < pm.people.Count; i++)
+                            {
+                                letter = pm.people[i].GetType() == typeof(Executive) ? "D" : "E";
+                                listMenu.Add($"|{i,-3}|{cutString(pm.people[i].Name, 10),-10}|{cutString(pm.people[i].Name, 20),-20}|{letter,-10}");
+                            }
+
+                            do
+                            {
+
+                            menuPeople= listMenu.ToArray();
+
+                            min = subMenu("Select the minimum value to delete", menuPeople);
+
+                            } while (min >= menuPeople.Length-1);
+
+
+                            listMenu.RemoveRange(0, min+1);
+
+                            menuPeople = listMenu.ToArray();
+
+                            max = subMenu("Select the maximun value to delete", menuPeople);
+
+                            for (int i = min; i <= max; i++)
                             {
                                 letter = pm.people[i].GetType() == typeof(Executive) ? "D" : "E";
                                 Console.WriteLine($"{i,3}. Name: {cutString(pm.people[i].Name, 10),10} Surname:{cutString(pm.people[i].Name, 20),20} {letter} {pm.people[i].Age}");
+                            }
+
+                            int delete = subMenu("Do you really delete this elements?", yesNo);
+
+                            if (delete == 0)
+                            {
+                                bool correctDelete = pm.Delete(max, min);
+
+                                if (correctDelete)
+                                {
+                                    Console.WriteLine("Elements was delete correctly");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Elements wasn't delete");
+                                }
                             }
 
                         }
@@ -164,21 +201,12 @@ namespace _01_02_03_04_exercise
                             Console.WriteLine("You need almost 2 person to delete");
                         }
 
+
                         resume();
 
                         break;
                     case 2:
-
-                        string header = $"|{"i",-3}|{"Name",-10}|{"Surname",-20}|{"Letter",-10}|";
-                        Console.WriteLine(header);
-                        Console.WriteLine();
-
-                        for (int i = 0; i < pm.people.Count; i++)
-                        {
-                            letter = pm.people[i].GetType() == typeof(Executive) ? "D" : "E";
-                            System.Console.WriteLine($"|{i,-3}|{cutString(pm.people[i].Name, 10),-10}|{cutString(pm.people[i].Name, 20),-20}|{letter,-10}");
-                        }
-                        resume();
+                        showAllPeople();
 
                         break;
                     case 3:
@@ -200,7 +228,26 @@ namespace _01_02_03_04_exercise
             } while (menu != 4);
         }
 
-        private static int askMaxMin(string sentence)
+        private void showAllPeople(bool showResume = true)
+        {
+            string letter;
+            string header = $"|{"i",-3}|{"Name",-10}|{"Surname",-20}|{"Letter",-10}|";
+            Console.WriteLine(header);
+            Console.WriteLine();
+
+            for (int i = 0; i < pm.people.Count; i++)
+            {
+                letter = pm.people[i].GetType() == typeof(Executive) ? "D" : "E";
+                System.Console.WriteLine($"|{i,-3}|{cutString(pm.people[i].Name, 10),-10}|{cutString(pm.people[i].Name, 20),-20}|{letter,-10}");
+            }
+
+            if (showResume)
+            {
+                resume();
+            }
+        }
+
+        private int askMaxMin(string sentence, int max, int min = 0)
         {
             int value;
             bool isWorking = true;
@@ -208,19 +255,24 @@ namespace _01_02_03_04_exercise
             do
             {
                 Console.Clear();
+
+                showAllPeople(false);
+
+
                 if (!isWorking)
                 {
                     Console.WriteLine("Insert a valid value");
                 }
 
-                Console.WriteLine($"Insert the {sentence} index to delete");
+                Console.WriteLine($"\nInsert the {sentence} index to delete");
 
                 isWorking = Int32.TryParse(Console.ReadLine(), out value);
 
-                if (value < 0)
+                if (value < min || value >= max)
                 {
                     isWorking = false;
                 }
+
 
             } while (!isWorking);
 

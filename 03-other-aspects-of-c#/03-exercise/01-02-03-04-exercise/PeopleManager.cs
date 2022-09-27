@@ -39,11 +39,11 @@ namespace _01_02_03_04_exercise
             return -1;
         }
 
-        bool Delete(int max,int min= 0)
+       public bool Delete(int max,int min= 0)
         {
             try
             {
-                people.RemoveRange(min, min - max);
+                people.RemoveRange(min, (max-min)+1);
 
             }
             catch (ArgumentOutOfRangeException)
