@@ -11,7 +11,10 @@ namespace _02_exercise
         int[,] notes;
         string[] students;
 
-        public int[,] Notes { get => notes; set => notes = value; }
+        public int[,] Notes {
+            get => notes; 
+            set => notes = value; 
+        }
 
         public int this[int columns, int rows]
         {
