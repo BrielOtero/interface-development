@@ -35,6 +35,7 @@
             this.color = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.background = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // exit
@@ -46,6 +47,7 @@
             this.exit.Text = "Exit";
             this.exit.UseVisualStyleBackColor = true;
             this.exit.Click += new System.EventHandler(this.exit_Click);
+            this.exit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             // 
             // textBox1
             // 
@@ -53,6 +55,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(50, 23);
             this.textBox1.TabIndex = 1;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             // 
             // textBox2
             // 
@@ -60,6 +63,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(50, 23);
             this.textBox2.TabIndex = 2;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             // 
             // textBox3
             // 
@@ -67,6 +71,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(50, 23);
             this.textBox3.TabIndex = 3;
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             // 
             // color
             // 
@@ -77,6 +82,7 @@
             this.color.Text = "Color";
             this.color.UseVisualStyleBackColor = true;
             this.color.Click += new System.EventHandler(this.color_Click);
+            this.color.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             // 
             // textBox4
             // 
@@ -84,6 +90,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(385, 23);
             this.textBox4.TabIndex = 5;
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             // 
             // background
             // 
@@ -93,12 +100,23 @@
             this.background.TabIndex = 0;
             this.background.Text = "Background";
             this.background.UseVisualStyleBackColor = true;
+            this.background.Click += new System.EventHandler(this.background_Click);
+            this.background.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(93, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(385, 81);
+            this.label1.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 176);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.background);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.color);
@@ -124,5 +142,6 @@
         private Button color;
         private TextBox textBox4;
         private Button background;
+        private Label label1;
     }
 }
