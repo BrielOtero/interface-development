@@ -1,10 +1,14 @@
+using System.Diagnostics;
+
 namespace _02_exercise
 {
     public partial class Form1 : Form
     {
+        private Color defaultColor;
         public Form1()
         {
             InitializeComponent();
+            defaultColor = color.BackColor;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -25,12 +29,40 @@ namespace _02_exercise
             {
                 closeForm();
             }
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (textBox1.Focused || textBox2.Focused || textBox3.Focused)
+                {
+                    color.PerformClick();
+                }
+                else if (textBox4.Focused)
+                {
+                    background.PerformClick();
+                }
+            }
         }
-     
+
 
         private void color_Click(object sender, EventArgs e)
         {
             changeColor();
+
+        }
+
+        private void background_Click(object sender, EventArgs e)
+        {
+            changeBackground();
+        }
+
+        private void buttons_Enter(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Aquamarine;
+        }
+
+        private void buttons_Leave(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = defaultColor;
 
         }
 
@@ -51,16 +83,18 @@ namespace _02_exercise
             this.BackColor = Color.FromArgb(red, green, blue);
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void changeBackground()
         {
-
+            try
+            {
+                label1.Image = new Bitmap(textBox4.Text);
+            }
+            catch (ArgumentException)
+            {
+                Trace.WriteLine("error with background");
+            }
         }
 
-        private void background_Click(object sender, EventArgs e)
-        {
-            label1.Image = new Bitmap(textBox4.Text);
 
-              
-        }
     }
 }

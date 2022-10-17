@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.exit = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -44,10 +45,12 @@
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(86, 23);
             this.exit.TabIndex = 0;
-            this.exit.Text = "Exit";
+            this.exit.Text = "&Exit";
             this.exit.UseVisualStyleBackColor = true;
             this.exit.Click += new System.EventHandler(this.exit_Click);
             this.exit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
+            this.exit.MouseEnter += new System.EventHandler(this.buttons_Enter);
+            this.exit.MouseLeave += new System.EventHandler(this.buttons_Leave);
             // 
             // textBox1
             // 
@@ -79,10 +82,12 @@
             this.color.Name = "color";
             this.color.Size = new System.Drawing.Size(50, 23);
             this.color.TabIndex = 4;
-            this.color.Text = "Color";
+            this.color.Text = "&Color";
             this.color.UseVisualStyleBackColor = true;
             this.color.Click += new System.EventHandler(this.color_Click);
             this.color.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
+            this.color.MouseEnter += new System.EventHandler(this.buttons_Enter);
+            this.color.MouseLeave += new System.EventHandler(this.buttons_Leave);
             // 
             // textBox4
             // 
@@ -98,10 +103,12 @@
             this.background.Name = "background";
             this.background.Size = new System.Drawing.Size(86, 23);
             this.background.TabIndex = 0;
-            this.background.Text = "Background";
+            this.background.Text = "&Background";
             this.background.UseVisualStyleBackColor = true;
             this.background.Click += new System.EventHandler(this.background_Click);
             this.background.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
+            this.background.MouseEnter += new System.EventHandler(this.buttons_Enter);
+            this.background.MouseLeave += new System.EventHandler(this.buttons_Leave);
             // 
             // label1
             // 
@@ -124,7 +131,14 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.exit);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
