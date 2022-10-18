@@ -1,4 +1,4 @@
-//#define KEY
+#define KEY
 using System.Diagnostics;
 
 namespace _01_exercise
@@ -77,8 +77,26 @@ namespace _01_exercise
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
-            button1.BackColor = defaultColor;
-            button2.BackColor = defaultColor;
+            if (e.Button == MouseButtons.Left || e.Button == MouseButtons.Right)
+            {
+
+                if (e.Button == MouseButtons.Left)
+                {
+                    button1.BackColor = defaultColor;
+
+                }
+
+                if (e.Button == MouseButtons.Right)
+                {
+                    button2.BackColor = defaultColor;
+                }
+
+            }
+            else
+            {
+                button1.BackColor = defaultColor;
+                button2.BackColor = defaultColor;
+            }
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
