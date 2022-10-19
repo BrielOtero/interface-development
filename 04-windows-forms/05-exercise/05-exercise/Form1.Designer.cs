@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // listBox1
@@ -51,6 +53,7 @@
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBox1.Size = new System.Drawing.Size(120, 454);
             this.listBox1.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.listBox1, "Left Box");
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // listBox2
@@ -72,6 +75,7 @@
             this.button1.Size = new System.Drawing.Size(133, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "&Add";
+            this.toolTip1.SetToolTip(this.button1, "Add");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -82,6 +86,7 @@
             this.button2.Size = new System.Drawing.Size(133, 23);
             this.button2.TabIndex = 3;
             this.button2.Text = "&Remove";
+            this.toolTip1.SetToolTip(this.button2, "Remove");
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -111,6 +116,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(133, 23);
             this.textBox1.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.textBox1, "Element");
             // 
             // label1
             // 
@@ -119,6 +125,7 @@
             this.label1.Size = new System.Drawing.Size(133, 23);
             this.label1.TabIndex = 7;
             this.label1.Text = "Items: 0";
+            this.toolTip1.SetToolTip(this.label1, "Items Left");
             // 
             // label2
             // 
@@ -127,6 +134,7 @@
             this.label2.Size = new System.Drawing.Size(133, 23);
             this.label2.TabIndex = 8;
             this.label2.Text = "Selected Items: 0";
+            this.toolTip1.SetToolTip(this.label2, "Selected Items");
             // 
             // Form1
             // 
@@ -145,7 +153,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.toolTip1.SetToolTip(this, "Form");
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -163,5 +171,6 @@
         private TextBox textBox1;
         private Label label1;
         private Label label2;
+        private ToolTip toolTip1;
     }
 }

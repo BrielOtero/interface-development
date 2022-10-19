@@ -32,3 +32,4 @@ C:\Users\ID\git\Interface-Development\04-windows-forms\05-exercise\05-exercise\o
 C:\Users\ID\git\Interface-Development\04-windows-forms\05-exercise\05-exercise\obj\Debug\net6.0-windows\05-exercise.pdb
 C:\Users\ID\git\Interface-Development\04-windows-forms\05-exercise\05-exercise\obj\Debug\net6.0-windows\05-exercise.genruntimeconfig.cache
 C:\Users\ID\git\Interface-Development\04-windows-forms\05-exercise\05-exercise\obj\Debug\net6.0-windows\ref\05-exercise.dll
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\05-exercise\05-exercise\obj\Debug\net6.0-windows\_05_exercise.Properties.Resources.resources

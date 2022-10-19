@@ -1,3 +1,4 @@
+using _05_exercise.Properties;
 using System.Diagnostics;
 using Timer = System.Windows.Forms.Timer;
 
@@ -5,9 +6,9 @@ namespace _05_exercise
 {
     public partial class Form1 : Form
     {
-        private string title = "     Exercise 5";
-        private string refreshTitle = "     ";
-        int titleCont = 0;
+        private string title = "          Exercise 5";
+        private int titleCont;
+        private string tempTitle;
 
         public Form1()
         {
@@ -16,25 +17,27 @@ namespace _05_exercise
             timer.Interval = 200;
             timer.Tick += new EventHandler(TimerEventProcessor);
             timer.Start();
+            checkSize();
         }
 
         private void TimerEventProcessor(object sender, EventArgs e)
         {
-            if (titleCont >= title.Length)
+
+            this.Icon = titleCont % 2 == 0 ? Resources.ico1 : Resources.ico2;
+
+            if (titleCont <= 0)
             {
-                titleCont = 0;
+                titleCont = title.Length - 1;
             }
+            else
+            {
+                tempTitle = title[titleCont] + this.Text;
 
-            refreshTitle = refreshTitle + title.ElementAt(titleCont);
+                this.Text = titleCont < 10 ? tempTitle.Substring(0, 9) : tempTitle;
 
-            refreshTitle = refreshTitle.Substring(1, refreshTitle.Length - 1);
-
-            this.Text = refreshTitle;
-
-            titleCont++;
+                titleCont--;
+            }
         }
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -61,7 +64,7 @@ namespace _05_exercise
 
         private void button3_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < listBox1.SelectedItems.Count; i++)
+            for (int i = listBox1.SelectedItems.Count - 1; i >= 0; i--)
             {
                 listBox2.Items.Insert(0, listBox1.SelectedItems[i]);
             }
@@ -100,6 +103,7 @@ namespace _05_exercise
         {
             label1.Text = "Items: " + listBox1.Items.Count.ToString();
             label2.Text = "Selected Items: " + listBox1.SelectedItems.Count.ToString();
+            toolTip1.SetToolTip(listBox2, "Items: " + listBox2.Items.Count.ToString());
         }
 
 
