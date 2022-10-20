@@ -25,13 +25,7 @@ namespace _06_exercise
         {
             checkPin();
         }
-        private void Pin_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                checkPin();
-            }
-        }
+ 
 
         private void checkPin()
         {

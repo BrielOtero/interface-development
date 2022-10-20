@@ -1,0 +1,17 @@
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\bin\Debug\net6.0-windows\07-exercise.exe
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\bin\Debug\net6.0-windows\07-exercise.deps.json
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\bin\Debug\net6.0-windows\07-exercise.runtimeconfig.json
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\bin\Debug\net6.0-windows\07-exercise.dll
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\bin\Debug\net6.0-windows\07-exercise.pdb
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\obj\Debug\net6.0-windows\07-exercise.csproj.AssemblyReference.cache
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\obj\Debug\net6.0-windows\_07_exercise.Form1.resources
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\obj\Debug\net6.0-windows\07-exercise.csproj.GenerateResource.cache
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\obj\Debug\net6.0-windows\07-exercise.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\obj\Debug\net6.0-windows\07-exercise.AssemblyInfoInputs.cache
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\obj\Debug\net6.0-windows\07-exercise.AssemblyInfo.cs
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\obj\Debug\net6.0-windows\07-exercise.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\obj\Debug\net6.0-windows\07-exercise.dll
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\obj\Debug\net6.0-windows\refint\07-exercise.dll
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\obj\Debug\net6.0-windows\07-exercise.pdb
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\obj\Debug\net6.0-windows\07-exercise.genruntimeconfig.cache
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\07-exercise\07-exercise\obj\Debug\net6.0-windows\ref\07-exercise.dll
