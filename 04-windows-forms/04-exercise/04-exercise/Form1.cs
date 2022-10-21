@@ -39,6 +39,7 @@ namespace _04_exercise
             if (((RadioButton)sender).Checked)
             {
                 label1.Text = ((RadioButton)sender).Text.Substring(((RadioButton)sender).Text.IndexOf(' ') + 1);
+
             }
         }
 
@@ -70,5 +71,9 @@ namespace _04_exercise
             operators[label1.Text].Invoke(x, y);
         }
 
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = !double.TryParse(((TextBox)sender).Text, out double x) ? Color.Red : Color.White;
+        }
     }
 }

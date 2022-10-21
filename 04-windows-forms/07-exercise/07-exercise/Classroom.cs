@@ -9,7 +9,7 @@ namespace _02_exercise
     internal class Classroom
     {
         int[,] notes;
-        string[] students;
+        public string[] students;
 
         public int[,] Notes {
             get => notes; 

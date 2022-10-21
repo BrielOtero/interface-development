@@ -96,7 +96,10 @@ namespace _05_exercise
         }
         private void getAndAddToLeft()
         {
-            listBox1.Items.Add(textBox1.Text);
+            if (!listBox1.Items.Contains(textBox1.Text))
+            {
+                listBox1.Items.Add(textBox1.Text);
+            }
         }
 
         private void checkSize()

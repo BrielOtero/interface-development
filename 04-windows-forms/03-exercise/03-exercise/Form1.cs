@@ -51,5 +51,17 @@ namespace _03_exercise
                 e.Cancel = true;
             }
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((CheckBox)sender).Checked)
+            {
+                ((CheckBox)sender).ForeColor = Color.Red;
+            }
+            else
+            {
+                ((CheckBox)sender).ForeColor = Color.Black;
+            }
+        }
     }
 }
