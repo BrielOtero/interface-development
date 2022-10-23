@@ -51,7 +51,7 @@ namespace _07_exercise
 
             for (int i = 0; i < subjects.Length; i++)
             {
-                createButton(cutString(subjects[i], 10), new Point(x, y));
+                createLabel(cutString(subjects[i], 10), new Point(x, y));
 
                 x += 99;
             }
@@ -62,12 +62,12 @@ namespace _07_exercise
 
             for (int i = 0; i < c.Notes.GetLength(1); i++)
             {
-                createButton(cutString(c.students[i], WIDTH_TEXT), new Point(x, y));
+                createLabel(cutString(c.students[i], WIDTH_TEXT), new Point(x, y));
 
                 for (int j = 0; j < c.Notes.GetLength(0); j++)
                 {
                     x += 99;
-                    createButton(cutString(c[j, i].ToString(), WIDTH_TEXT), new Point(x, y), $"{students[i]}\r{subjects[j]}");
+                    createLabel(cutString(c[j, i].ToString(), WIDTH_TEXT), new Point(x, y), $"{students[i]}\r{subjects[j]}");
                 }
                 x = 10;
                 y += 24;
@@ -77,7 +77,7 @@ namespace _07_exercise
 
         }
 
-        private void createButton(String text, Point p, string tipText = "")
+        private void createLabel(String text, Point p, string tipText = "")
         {
             lbl = new Label();
             lbl.Text = text;

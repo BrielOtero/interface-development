@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace _03_exercise
 {
     public partial class Form1 : Form
@@ -21,6 +23,7 @@ namespace _03_exercise
                 Bitmap image;
                 try
                 {
+                    Trace.WriteLine(filePath);
                     image = new Bitmap(filePath);
 
                 }
