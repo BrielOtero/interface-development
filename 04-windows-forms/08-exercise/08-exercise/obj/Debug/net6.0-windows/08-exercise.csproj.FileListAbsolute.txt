@@ -34,3 +34,5 @@ C:\Users\ID\git\Interface-Development\04-windows-forms\08-exercise\08-exercise\o
 C:\Users\ID\git\Interface-Development\04-windows-forms\08-exercise\08-exercise\obj\Debug\net6.0-windows\ref\08-exercise.dll
 C:\Users\ID\git\Interface-Development\04-windows-forms\08-exercise\08-exercise\obj\Debug\net6.0-windows\_08_exercise.Form2.resources
 C:\Users\ID\git\Interface-Development\04-windows-forms\08-exercise\08-exercise\obj\Debug\net6.0-windows\_08_exercise.Properties.Resources.resources
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\08-exercise\08-exercise\obj\Debug\net6.0-windows\_08_exercise.Form2.resources
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\08-exercise\08-exercise\obj\Debug\net6.0-windows\_08_exercise.Properties.Resources.resources

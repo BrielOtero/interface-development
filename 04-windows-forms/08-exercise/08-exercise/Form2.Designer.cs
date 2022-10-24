@@ -59,6 +59,6 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
+        public PictureBox pictureBox1;
     }
 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ID\\git\\Interface-Development\\04-windows-forms\\08-exercise\\08-exercise\\08-exercise.csproj": {}
+    "C:\\Users\\Gabriel\\git\\Interface-Development\\04-windows-forms\\08-exercise\\08-exercise\\08-exercise.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ID\\git\\Interface-Development\\04-windows-forms\\08-exercise\\08-exercise\\08-exercise.csproj": {
+    "C:\\Users\\Gabriel\\git\\Interface-Development\\04-windows-forms\\08-exercise\\08-exercise\\08-exercise.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ID\\git\\Interface-Development\\04-windows-forms\\08-exercise\\08-exercise\\08-exercise.csproj",
+        "projectUniqueName": "C:\\Users\\Gabriel\\git\\Interface-Development\\04-windows-forms\\08-exercise\\08-exercise\\08-exercise.csproj",
         "projectName": "08-exercise",
-        "projectPath": "C:\\Users\\ID\\git\\Interface-Development\\04-windows-forms\\08-exercise\\08-exercise\\08-exercise.csproj",
-        "packagesPath": "C:\\Users\\ID\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ID\\git\\Interface-Development\\04-windows-forms\\08-exercise\\08-exercise\\obj\\",
+        "projectPath": "C:\\Users\\Gabriel\\git\\Interface-Development\\04-windows-forms\\08-exercise\\08-exercise\\08-exercise.csproj",
+        "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gabriel\\git\\Interface-Development\\04-windows-forms\\08-exercise\\08-exercise\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ID\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,7 +57,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

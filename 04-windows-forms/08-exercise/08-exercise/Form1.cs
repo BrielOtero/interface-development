@@ -115,13 +115,7 @@ namespace _08_exercise
         private void changeImageAndTitleForm2(int index)
         {
             form2.Text = imagesInfo.ElementAt(index).Name;
-            foreach (var control in form2.Controls)
-            {
-                if (control is PictureBox)
-                {
-                    ((PictureBox)control).Image = images.ElementAt(index);
-                }
-            }
+            form2.pictureBox1.Image = images.ElementAt(index);
             update_labels();
 
         }
@@ -164,7 +158,7 @@ namespace _08_exercise
             if (imagesInfo != null)
             {
                 label1.Text = imagesInfo.ElementAt(selectedImage).Directory.ToString();
-                label2.Text = $"Name: {imagesInfo.ElementAt(selectedImage).Name}\nSize: {convertBytes(imagesInfo.ElementAt(selectedImage).Length)}\nResolution: {images.ElementAt(selectedImage).HorizontalResolution}x{images.ElementAt(selectedImage).VerticalResolution}";
+                label2.Text = $"Name: {imagesInfo.ElementAt(selectedImage).Name}\nSize: {convertBytes(imagesInfo.ElementAt(selectedImage).Length)}\nResolution: {images.ElementAt(selectedImage).Width}x{images.ElementAt(selectedImage).Height}";
             }
         }
 
@@ -192,7 +186,7 @@ namespace _08_exercise
         {
             selectedImage = 0;
             images.Clear();
-            if (form2!=null)
+            if (form2 != null)
             {
                 form2.Close();
             }
@@ -207,7 +201,7 @@ namespace _08_exercise
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(MessageBox.Show("Do you really want to close the app?", "Close", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+            if (MessageBox.Show("Do you really want to close the app?", "Close", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
             {
                 e.Cancel = true;
             }
