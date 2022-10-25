@@ -39,13 +39,13 @@ namespace _07_exercise
         private void save_settings()
         {
             //Change values
-            config.AppConfig.WordWrap = true;
-            config.AppConfig.Mode = 0;
-            config.AppConfig.FontColor = Color.RebeccaPurple;
-            config.AppConfig.BackgroundColor = Color.RebeccaPurple;
-            config.AppConfig.Font = new Font("Arial", 22);
-            config.AppConfig.LastDir = "";
-            config.AppConfig.RecentFiles = new List<string>();
+            config.WordWrap = true;
+            config.Mode = 0;
+            config.FontColor = Color.RebeccaPurple;
+            config.BackgroundColor = Color.RebeccaPurple;
+            config.Font = new Font("Arial", 22);
+            config.LastDir = "";
+            config.RecentFiles = new List<string>();
 
             JsonSerializerOptions jsonWriteOptions = new JsonSerializerOptions()
             {
