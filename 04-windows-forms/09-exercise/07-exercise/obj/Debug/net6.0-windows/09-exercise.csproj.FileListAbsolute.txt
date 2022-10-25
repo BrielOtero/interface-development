@@ -34,3 +34,13 @@ C:\Users\ID\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\o
 C:\Users\ID\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\obj\Debug\net6.0-windows\ref\09-exercise.dll
 C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\appsettings.json
 C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\obj\Debug\net6.0-windows\_07_exercise.Properties.Resources.resources
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\obj\Debug\net6.0-windows\09-exercise.csproj.CopyComplete

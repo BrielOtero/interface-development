@@ -1,25 +1,65 @@
+using Microsoft.Extensions.Configuration;
 using System.Diagnostics;
+using System.Dynamic;
+using System.Runtime.Serialization.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace _07_exercise
 {
     public partial class Form1 : Form
     {
         public object Properties { get; private set; }
+        private Config config;
 
         public Form1()
         {
             InitializeComponent();
+            load_settings();
         }
 
-       
+
         private void load_settings()
         {
-            string filePath = Environment.GetEnvironmentVariable("homepath") + "\\settings.bin";
-            FileStream fileStream = new FileStream(filePath,FileMode.OpenOrCreate);
-
+            //Loading appsettings.json into the config object
+            try
+            {
+                config = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile("appsettings.json").Build().Get<Config>();
+            }
+            catch (IOException)
+            {
+                config = new Config();
+            }
+            catch (Exception)
+            {
+                config = new Config();
+            }
         }
+
         private void save_settings()
         {
+            //Change values
+            config.AppConfig.WordWrap = true;
+            config.AppConfig.Mode = 0;
+            config.AppConfig.FontColor = Color.RebeccaPurple;
+            config.AppConfig.BackgroundColor = Color.RebeccaPurple;
+            config.AppConfig.Font = new Font("Arial", 22);
+            config.AppConfig.LastDir = "";
+            config.AppConfig.RecentFiles = new List<string>();
+
+            JsonSerializerOptions jsonWriteOptions = new JsonSerializerOptions()
+            {
+                WriteIndented = true
+            };
+
+            // Serialize the config object
+            jsonWriteOptions.Converters.Add(new JsonStringEnumConverter());
+            string newJson = JsonSerializer.Serialize(config, jsonWriteOptions);
+
+            // Overwrite appsettings.json with the new JSON
+            string appSettingsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "appsettings.json");
+            Trace.WriteLine(appSettingsPath);
+            File.WriteAllText(appSettingsPath, newJson);
         }
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,6 +121,12 @@ namespace _07_exercise
         private void selectAllToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             textBox1.SelectAll();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            save_settings();
         }
     }
 }
