@@ -8,7 +8,7 @@ namespace _07_exercise
 {
     public class Config
     {
-        private bool debugEnabled;
+  
         private bool wordWrap;
         private int mode;
         private Color fontColor;
@@ -17,7 +17,6 @@ namespace _07_exercise
         private string lastDir;
         private List<string> recentFiles;
 
-        public bool DebugEnabled { get => debugEnabled; set => debugEnabled = value; }
         public bool WordWrap { get => wordWrap; set => wordWrap = value; }
         public int Mode { get => mode; set => mode = value; }
         public Color FontColor { get => fontColor; set => fontColor = value; }
@@ -28,12 +27,11 @@ namespace _07_exercise
 
         public Config()
         {
-            DebugEnabled = true;
             WordWrap = false;
             Mode = 0;
             FontColor = Color.Black;
-            BackgroundColor = Color.Bisque;
-            Font = new Font("Arial", 22);
+            BackgroundColor = Color.White;
+            Font = new Font("Segoe UI", 9);
             LastDir = "";
             RecentFiles = new List<string>();
         }
