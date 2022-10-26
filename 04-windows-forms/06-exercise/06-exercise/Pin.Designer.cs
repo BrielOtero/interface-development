@@ -86,6 +86,7 @@
             this.Name = "Pin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pin";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Pin_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

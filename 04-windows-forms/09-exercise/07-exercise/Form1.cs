@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using System.Diagnostics;
 using System.Dynamic;
 using System.Runtime.Serialization.Json;
@@ -19,13 +19,21 @@ namespace _07_exercise
         public Form1()
         {
             InitializeComponent();
+            this.Text = "The best Notepad";
             load_settings();
             apply_settings();
+            aboutToolStripMenuItem.Click += new EventHandler((sender, e) => MessageBox.Show("App made by Gabriel ❤", "About", MessageBoxButtons.OK, MessageBoxIcon.Information));
+            undoToolStripMenuItem1.Click += new EventHandler((sender, e) => textBox1.Undo());
+            cutToolStripMenuItem1.Click += new EventHandler((sender, e) => textBox1.Cut());
+            copyToolStripMenuItem1.Click += new EventHandler((sender, e) => textBox1.Copy());
+            pasteToolStripMenuItem1.Click += new EventHandler((sender, e) => textBox1.Paste());
+            selectAllToolStripMenuItem1.Click += new EventHandler((sender, e) => textBox1.SelectAll());
         }
 
         private void load_settings()
         {
             //Loading appsettings.json into the config object
+
             try
             {
                 Debug.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
@@ -46,7 +54,6 @@ namespace _07_exercise
 
         private void apply_settings()
         {
-
             wordwrapToolStripMenuItem.Checked = config.WordWrap;
 
             switch (config.Mode)
@@ -142,33 +149,6 @@ namespace _07_exercise
             newRecentFile(saveFileDialog.FileName);
         }
 
-        private void undoToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            textBox1.Undo();
-
-        }
-
-        private void cutToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            textBox1.Cut();
-        }
-
-        private void copyToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            textBox1.Copy();
-
-        }
-
-        private void pasteToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            textBox1.Paste();
-        }
-
-        private void selectAllToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            textBox1.SelectAll();
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
 
@@ -177,6 +157,7 @@ namespace _07_exercise
 
         private void newRecentFile(string path)
         {
+            textBox1.Modified = false;
             lastDir = path;
             recentFiles.Insert(0, path);
 
@@ -275,6 +256,50 @@ namespace _07_exercise
             {
                 textBox1.CharacterCasing = CharacterCasing.Lower;
             }
+        }
+
+        private void selectionInformationToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AdditionalInfo ad = new AdditionalInfo();
+            
+            Form2 form2 = new Form2(ad);
+            form2.Show();
+
+            //Punto inicio
+            //Punto final
+            //Cantidad de frases. "." Como separador
+            //Cantidad de palabras. Uno o mas espacios como separator
+            //Cantidad de caracteres
+        }
+
+        public struct AdditionalInfo
+        {
+            public int initialPoint;
+            public int lastPoint;
+            public int sentences;
+            public int words;
+            public int characters;
+
+            public AdditionalInfo()
+            {
+                this.initialPoint = 0;
+                this.lastPoint = 0;
+                this.sentences = 0;
+                this.words = 0;
+                this.characters = 0;
+            }
+        }
+
+        private void update_addtionalInfo()
+        {
+            selection.Text = $"Selection:";
+            countSentences.Text = $"Sentences:";
+
+        }
+
+        private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

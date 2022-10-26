@@ -17,6 +17,7 @@ namespace _06_exercise
         public Pin()
         {
             InitializeComponent();
+            this.Text = "Insert Pin";
             textBox1.PasswordChar = '*';
 
         }
@@ -45,7 +46,7 @@ namespace _06_exercise
             if (tries <= 0)
             {
                 this.DialogResult = DialogResult.Cancel;
-                this.Close();
+                Environment.Exit(0);
             }
             else
             {
@@ -53,6 +54,10 @@ namespace _06_exercise
             }
         }
 
-
+        private void Pin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel=true;
+            Environment.Exit(0);
+        }
     }
 }

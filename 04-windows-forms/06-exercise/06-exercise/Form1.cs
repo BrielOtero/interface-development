@@ -13,6 +13,7 @@ namespace _06_exercise
         public Form1()
         {
             InitializeComponent();
+            this.Text = "Phone";
             Pin pin = new Pin();
             if (pin.ShowDialog() == DialogResult.Cancel)
             {

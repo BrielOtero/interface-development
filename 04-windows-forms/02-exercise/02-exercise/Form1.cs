@@ -9,27 +9,17 @@ namespace _02_exercise
         {
             InitializeComponent();
             defaultColor = color.BackColor;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
+            this.Text = "Exercise 2";
 
         }
-
 
         private void exit_Click(object sender, EventArgs e)
         {
             closeForm();
-
         }
 
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e) //AcceptButton y Cancel Burtton
         {
-            if (e.KeyChar == (char)Keys.Escape)
-            {
-                closeForm();
-            }
-
             if (e.KeyChar == (char)Keys.Enter)
             {
                 if (textBox1.Focused || textBox2.Focused || textBox3.Focused)
@@ -38,7 +28,7 @@ namespace _02_exercise
                 }
                 else if (textBox4.Focused)
                 {
-                    background.PerformClick();
+                    image.PerformClick();
                 }
             }
         }
@@ -47,7 +37,6 @@ namespace _02_exercise
         private void color_Click(object sender, EventArgs e)
         {
             changeColor();
-
         }
 
         private void background_Click(object sender, EventArgs e)
@@ -63,7 +52,6 @@ namespace _02_exercise
         private void buttons_Leave(object sender, EventArgs e)
         {
             ((Button)sender).BackColor = defaultColor;
-
         }
 
         private void closeForm()
@@ -76,11 +64,36 @@ namespace _02_exercise
 
         private void changeColor()
         {
-            byte.TryParse(textBox1.Text, out byte red);
-            byte.TryParse(textBox2.Text, out byte green);
-            byte.TryParse(textBox3.Text, out byte blue);
+            bool correct = true;
+            byte red = 0, green = 0, blue = 0;
 
-            this.BackColor = Color.FromArgb(red, green, blue);
+            if (textBox1.Text.Trim() != "" && textBox2.Text.Trim() != "" && textBox3.Text.Trim() != "")
+            {
+                correct = byte.TryParse(textBox1.Text.ToString(), out red);
+
+                if (correct)
+                {
+                    correct = byte.TryParse(textBox2.Text.ToString(), out green);
+                }
+
+                if (correct)
+                {
+                    correct = byte.TryParse(textBox3.Text.ToString(), out blue);;
+                }
+            }
+            else
+            {
+                correct = false;
+            }
+
+            if (correct)
+            {
+                this.BackColor = Color.FromArgb(red, green, blue);
+            }
+            else
+            {
+                MessageBox.Show("Values no are valid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void changeBackground()
@@ -95,6 +108,14 @@ namespace _02_exercise
             }
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            closeForm();
+        }
 
+        private void enterChanged(object sender, EventArgs e)
+        {
+            this.AcceptButton = ((TextBox)sender).Tag.ToString() == "3" ? image : color;
+        }
     }
 }

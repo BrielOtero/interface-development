@@ -16,6 +16,7 @@ namespace _07_exercise
         public Form1()
         {
             InitializeComponent();
+            this.Text = "Classroom";
             try
             {
                 students = File.ReadAllText(Environment.GetEnvironmentVariable("userprofile") + Path.DirectorySeparatorChar.ToString() + "students.csv");
@@ -39,7 +40,7 @@ namespace _07_exercise
 
             comboBox1.Items.AddRange(c.students);
             comboBox2.Items.AddRange(subjects);
-          
+
             lbl1_update();
 
 
@@ -52,7 +53,6 @@ namespace _07_exercise
             for (int i = 0; i < subjects.Length; i++)
             {
                 createLabel(cutString(subjects[i], 10), new Point(x, y));
-
                 x += 99;
             }
 
@@ -67,14 +67,11 @@ namespace _07_exercise
                 for (int j = 0; j < c.Notes.GetLength(0); j++)
                 {
                     x += 99;
-                    createLabel(cutString(c[j, i].ToString(), WIDTH_TEXT), new Point(x, y), $"{students[i]}\r{subjects[j]}");
+                    createLabel(cutString(c[j, i].ToString(), WIDTH_TEXT), new Point(x, y), $"{c.students[i]}\r{subjects[j]}");
                 }
                 x = 10;
                 y += 24;
-
             }
-
-
         }
 
         private void createLabel(String text, Point p, string tipText = "")

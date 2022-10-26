@@ -32,7 +32,6 @@ C:\Users\ID\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\o
 C:\Users\ID\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\obj\Debug\net6.0-windows\09-exercise.pdb
 C:\Users\ID\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\obj\Debug\net6.0-windows\09-exercise.genruntimeconfig.cache
 C:\Users\ID\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\obj\Debug\net6.0-windows\ref\09-exercise.dll
-C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\appsettings.json
 C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\obj\Debug\net6.0-windows\_07_exercise.Properties.Resources.resources
 C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.dll
 C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -55,3 +54,4 @@ C:\Users\ID\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\b
 C:\Users\ID\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
 C:\Users\ID\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\obj\Debug\net6.0-windows\_07_exercise.Properties.Resources.resources
 C:\Users\ID\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\obj\Debug\net6.0-windows\09-exercise.csproj.CopyComplete
+C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\obj\Debug\net6.0-windows\_07_exercise.Form2.resources
