@@ -52,7 +52,6 @@
             this.exit.Text = "&Exit";
             this.exit.UseVisualStyleBackColor = true;
             this.exit.Click += new System.EventHandler(this.exit_Click);
-            this.exit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.exit.MouseEnter += new System.EventHandler(this.buttons_Enter);
             this.exit.MouseLeave += new System.EventHandler(this.buttons_Leave);
             // 
@@ -64,7 +63,6 @@
             this.textBox1.TabIndex = 1;
             this.textBox1.Tag = "0";
             this.textBox1.Enter += new System.EventHandler(this.enterChanged);
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             // 
             // textBox2
             // 
@@ -74,7 +72,6 @@
             this.textBox2.TabIndex = 2;
             this.textBox2.Tag = "1";
             this.textBox2.Enter += new System.EventHandler(this.enterChanged);
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             // 
             // textBox3
             // 
@@ -84,7 +81,6 @@
             this.textBox3.TabIndex = 3;
             this.textBox3.Tag = "2";
             this.textBox3.Enter += new System.EventHandler(this.enterChanged);
-            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             // 
             // color
             // 
@@ -95,7 +91,6 @@
             this.color.Text = "&Change Background";
             this.color.UseVisualStyleBackColor = true;
             this.color.Click += new System.EventHandler(this.color_Click);
-            this.color.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.color.MouseEnter += new System.EventHandler(this.buttons_Enter);
             this.color.MouseLeave += new System.EventHandler(this.buttons_Leave);
             // 
@@ -107,7 +102,6 @@
             this.textBox4.TabIndex = 5;
             this.textBox4.Tag = "3";
             this.textBox4.Enter += new System.EventHandler(this.enterChanged);
-            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             // 
             // image
             // 
@@ -118,7 +112,6 @@
             this.image.Text = "&Load Image";
             this.image.UseVisualStyleBackColor = true;
             this.image.Click += new System.EventHandler(this.background_Click);
-            this.image.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.image.MouseEnter += new System.EventHandler(this.buttons_Enter);
             this.image.MouseLeave += new System.EventHandler(this.buttons_Leave);
             // 
@@ -195,7 +188,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

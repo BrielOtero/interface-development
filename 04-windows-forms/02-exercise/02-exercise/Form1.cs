@@ -18,22 +18,6 @@ namespace _02_exercise
             closeForm();
         }
 
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e) //AcceptButton y Cancel Burtton
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                if (textBox1.Focused || textBox2.Focused || textBox3.Focused)
-                {
-                    color.PerformClick();
-                }
-                else if (textBox4.Focused)
-                {
-                    image.PerformClick();
-                }
-            }
-        }
-
-
         private void color_Click(object sender, EventArgs e)
         {
             changeColor();

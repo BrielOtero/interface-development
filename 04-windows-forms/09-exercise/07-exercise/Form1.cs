@@ -22,12 +22,20 @@ namespace _07_exercise
             this.Text = "The best Notepad";
             load_settings();
             apply_settings();
-            aboutToolStripMenuItem.Click += new EventHandler((sender, e) => MessageBox.Show("App made by Gabriel ❤", "About", MessageBoxButtons.OK, MessageBoxIcon.Information));
-            undoToolStripMenuItem1.Click += new EventHandler((sender, e) => textBox1.Undo());
-            cutToolStripMenuItem1.Click += new EventHandler((sender, e) => textBox1.Cut());
-            copyToolStripMenuItem1.Click += new EventHandler((sender, e) => textBox1.Copy());
-            pasteToolStripMenuItem1.Click += new EventHandler((sender, e) => textBox1.Paste());
-            selectAllToolStripMenuItem1.Click += new EventHandler((sender, e) => textBox1.SelectAll());
+            aboutMenuItem.Click += new EventHandler((sender, e) => MessageBox.Show("App made by Gabriel ❤", "About", MessageBoxButtons.OK, MessageBoxIcon.Information));
+            undoMenuItem.Click += new EventHandler((sender, e) => textBox1.Undo());
+            cutMenuItem.Click += new EventHandler((sender, e) => textBox1.Cut());
+            copyMenuItem.Click += new EventHandler((sender, e) => textBox1.Copy());
+            pasteMenuItem.Click += new EventHandler((sender, e) => textBox1.Paste());
+            selectAllMenuItem.Click += new EventHandler((sender, e) => { textBox1.SelectAll(); update_addtionalInfo(); });
+            newButton.Click += new EventHandler((sender, e) => newMenuItem.PerformClick());
+            undoButton.Click += new EventHandler((sender, e) => undoMenuItem.PerformClick());
+            copyButton.Click += new EventHandler((sender, e) => copyMenuItem.PerformClick());
+            cutButton.Click += new EventHandler((sender, e) => cutMenuItem.PerformClick());
+            pasteButton.Click += new EventHandler((sender, e) => pasteMenuItem.PerformClick());
+            selectAllButton.Click += new EventHandler((sender, e) => selectAllMenuItem.PerformClick());
+            textBox1.TextChanged+= new EventHandler((sender, e) => update_addtionalInfo());
+
         }
 
         private void load_settings()
@@ -54,25 +62,24 @@ namespace _07_exercise
 
         private void apply_settings()
         {
-            wordwrapToolStripMenuItem.Checked = config.WordWrap;
+            wordwrapMenuItem.Checked = config.WordWrap;
 
             switch (config.Mode)
             {
                 case 0:
-                    defaultToolStripMenuItem.Checked = true;
+                    defaultMenuItem.Checked = true;
                     break;
                 case 1:
-                    upperCaseToolStripMenuItem.Checked = true;
+                    upperCaseMenuItem.Checked = true;
                     break;
                 case 2:
-                    lowerCaseToolStripMenuItem.Checked = true;
+                    lowerCaseMenuItem.Checked = true;
                     break;
             }
 
             textBox1.ForeColor = config.FontColor;
             textBox1.BackColor = config.BackgroundColor;
             textBox1.Font = config.Font;
-            Debug.WriteLine(textBox1.Font);
             lastDir = config.LastDir;
             recentFiles = config.RecentFiles;
 
@@ -82,17 +89,17 @@ namespace _07_exercise
         private void save_settings()
         {
             //Change values
-            config.WordWrap = wordwrapToolStripMenuItem.Checked;
+            config.WordWrap = wordwrapMenuItem.Checked;
 
-            if (defaultToolStripMenuItem.Checked)
+            if (defaultMenuItem.Checked)
             {
                 config.Mode = 0;
             }
-            else if (upperCaseToolStripMenuItem.Checked)
+            else if (upperCaseMenuItem.Checked)
             {
                 config.Mode = 1;
             }
-            else if (lowerCaseToolStripMenuItem.Checked)
+            else if (lowerCaseMenuItem.Checked)
             {
                 config.Mode = 2;
             }
@@ -171,14 +178,14 @@ namespace _07_exercise
         private void refreshRecent()
         {
             ToolStripMenuItem[] tsmItems = new ToolStripMenuItem[recentFiles.Count];
-            recentFilesToolStripMenuItem1.DropDownItems.Clear();
+            recentFilesMenuItem.DropDownItems.Clear();
             for (int i = 0; i < recentFiles.Count; i++)
             {
                 tsmItems[i] = new ToolStripMenuItem();
                 tsmItems[i].Text = recentFiles[i];
                 tsmItems[i].Click += tsmItemClick;
             }
-            recentFilesToolStripMenuItem1.DropDownItems.AddRange(tsmItems);
+            recentFilesMenuItem.DropDownItems.AddRange(tsmItems);
         }
         private void tsmItemClick(object sender, EventArgs e)
         {
@@ -192,9 +199,9 @@ namespace _07_exercise
 
         private void wordwrapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            wordwrapToolStripMenuItem.Checked = !wordwrapToolStripMenuItem.Checked;
+            wordwrapMenuItem.Checked = !wordwrapMenuItem.Checked;
 
-            textBox1.WordWrap = wordwrapToolStripMenuItem.Checked;
+            textBox1.WordWrap = wordwrapMenuItem.Checked;
         }
 
         private void fontColorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -233,73 +240,50 @@ namespace _07_exercise
 
         private void writeSelection_Click(object sender, EventArgs e)
         {
-            defaultToolStripMenuItem.Checked = false;
-            upperCaseToolStripMenuItem.Checked = false;
-            lowerCaseToolStripMenuItem.Checked = false;
+            defaultMenuItem.Checked = false;
+            upperCaseMenuItem.Checked = false;
+            lowerCaseMenuItem.Checked = false;
             ((ToolStripMenuItem)sender).Checked = true;
         }
 
         private void writeSelection_CheckStateChanged(object sender, EventArgs e)
         {
 
-            if (defaultToolStripMenuItem.Checked)
+            if (defaultMenuItem.Checked)
             {
                 textBox1.CharacterCasing = CharacterCasing.Normal;
             }
 
-            if (upperCaseToolStripMenuItem.Checked)
+            if (upperCaseMenuItem.Checked)
             {
                 textBox1.CharacterCasing = CharacterCasing.Upper;
             }
 
-            if (lowerCaseToolStripMenuItem.Checked)
+            if (lowerCaseMenuItem.Checked)
             {
                 textBox1.CharacterCasing = CharacterCasing.Lower;
             }
         }
 
-        private void selectionInformationToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            AdditionalInfo ad = new AdditionalInfo();
-            
-            Form2 form2 = new Form2(ad);
-            form2.Show();
-
-            //Punto inicio
-            //Punto final
-            //Cantidad de frases. "." Como separador
-            //Cantidad de palabras. Uno o mas espacios como separator
-            //Cantidad de caracteres
-        }
-
-        public struct AdditionalInfo
-        {
-            public int initialPoint;
-            public int lastPoint;
-            public int sentences;
-            public int words;
-            public int characters;
-
-            public AdditionalInfo()
-            {
-                this.initialPoint = 0;
-                this.lastPoint = 0;
-                this.sentences = 0;
-                this.words = 0;
-                this.characters = 0;
-            }
-        }
-
         private void update_addtionalInfo()
         {
-            selection.Text = $"Selection:";
-            countSentences.Text = $"Sentences:";
+            if (textBox1.SelectionLength > 0)
+            {
+                selectionSize.Text = $"Selection size: {textBox1.SelectionLength}";
+                selection.Text = $"Selection: From {textBox1.SelectionStart} to {textBox1.SelectionStart+textBox1.SelectionLength}";
+            }
+            countSentences.Text = $"Sentences: {textBox1.Text.Split('.', StringSplitOptions.RemoveEmptyEntries).Length}";
+            countWords.Text = $"Words: {textBox1.Text.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length}";
+            countCharacters.Text = $"Characters: {textBox1.Text.Length}";
 
         }
 
-        private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void textBox1_MouseMove(object sender, MouseEventArgs e)
         {
-
+           if(e.Button == MouseButtons.Left)
+            {
+                update_addtionalInfo();
+            }
         }
     }
 }
