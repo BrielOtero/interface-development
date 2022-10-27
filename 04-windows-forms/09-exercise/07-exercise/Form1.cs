@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using _07_exercise.Properties;
+using Microsoft.Extensions.Configuration;
 using System.Diagnostics;
 using System.Dynamic;
 using System.Runtime.Serialization.Json;
@@ -15,7 +16,7 @@ namespace _07_exercise
         private List<string> recentFiles;
         private string lastDir;
         private string formats = "Text Files (*.txt)|*.txt|Ini Files (*.ini)|*.ini|Java Files (*.java)|*.java|C Sharp Files (*.cs)|*.cs|Python Files (*.py)|*.py|Html Files (*.html)|*.html|Css Files (*.css)|*.css|Xml Files (*.xml)|*.xml|All Files (*.*)|*.*";
-
+        private bool needSave = false;
         public Form1()
         {
             InitializeComponent();
@@ -34,7 +35,17 @@ namespace _07_exercise
             cutButton.Click += new EventHandler((sender, e) => cutMenuItem.PerformClick());
             pasteButton.Click += new EventHandler((sender, e) => pasteMenuItem.PerformClick());
             selectAllButton.Click += new EventHandler((sender, e) => selectAllMenuItem.PerformClick());
-            textBox1.TextChanged+= new EventHandler((sender, e) => update_addtionalInfo());
+            textBox1.TextChanged += new EventHandler((sender, e) => { update_addtionalInfo(); needSave = true; });
+            textBox1.Click += new EventHandler((sender, e) => update_addtionalInfo());
+            this.ContextMenuStripChanged += new EventHandler((sender, e) => { Trace.WriteLine("uwu"); this.ContextMenuStrip.Closing += new ToolStripDropDownClosingEventHandler((sender, e) => Trace.WriteLine("hey")); });
+            newButton.Image = new Bitmap(Resources.newDoc, new Size(26,26));
+            undoButton.Image = new Bitmap(Resources.undo, new Size(26, 26));
+            cutButton.Image = new Bitmap(Resources.cut, new Size(26, 26));
+            copyButton.Image = new Bitmap(Resources.copy, new Size(26, 26));
+            pasteButton.Image = new Bitmap(Resources.paste, new Size(26, 26));
+            copyButton.Image = new Bitmap(Resources.copy, new Size(26, 26));
+            selectAllButton.Image = new Bitmap(Resources.selectAll, new Size(26, 26));
+
 
         }
 
@@ -63,6 +74,7 @@ namespace _07_exercise
         private void apply_settings()
         {
             wordwrapMenuItem.Checked = config.WordWrap;
+            textBox1.WordWrap = wordwrapMenuItem.Checked;
 
             switch (config.Mode)
             {
@@ -126,11 +138,6 @@ namespace _07_exercise
             File.WriteAllText(appSettingsPath, newJson);
         }
 
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -158,21 +165,23 @@ namespace _07_exercise
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            checkIsSaved();
             save_settings();
         }
 
         private void newRecentFile(string path)
         {
-            textBox1.Modified = false;
-            lastDir = path;
-            recentFiles.Insert(0, path);
-
-            if (recentFiles.Count > 5)
+            if (path.Trim() != "")
             {
-                recentFiles.RemoveAt(recentFiles.Count() - 1);
+                lastDir = path;
+                recentFiles.Insert(0, path);
+
+                if (recentFiles.Count > 5)
+                {
+                    recentFiles.RemoveAt(recentFiles.Count() - 1);
+                }
+                refreshRecent();
             }
-            refreshRecent();
         }
 
         private void refreshRecent()
@@ -186,15 +195,23 @@ namespace _07_exercise
                 tsmItems[i].Click += tsmItemClick;
             }
             recentFilesMenuItem.DropDownItems.AddRange(tsmItems);
+            update_addtionalInfo();
         }
         private void tsmItemClick(object sender, EventArgs e)
         {
+            Trace.WriteLine(((ToolStripMenuItem)sender).Text);
             textBox1.Text = File.ReadAllText(((ToolStripMenuItem)sender).Text);
         }
 
         private void checkIsSaved()
         {
-            //textBox1.is
+            if (needSave)
+            {
+                if (MessageBox.Show("Do you want save changes?", "Save", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    saveMenuItem.PerformClick();
+                }
+            }
         }
 
         private void wordwrapToolStripMenuItem_Click(object sender, EventArgs e)
@@ -267,11 +284,12 @@ namespace _07_exercise
 
         private void update_addtionalInfo()
         {
-            if (textBox1.SelectionLength > 0)
-            {
-                selectionSize.Text = $"Selection size: {textBox1.SelectionLength}";
-                selection.Text = $"Selection: From {textBox1.SelectionStart} to {textBox1.SelectionStart+textBox1.SelectionLength}";
-            }
+            int selectLength = textBox1.SelectionLength > 0 ? textBox1.SelectionLength : 0;
+            int selectStart = textBox1.SelectionLength > 0 ? textBox1.SelectionStart : 0;
+
+
+            selectionSize.Text = $"Selection size: {selectLength}";
+            selection.Text = $"Selection: From {selectStart} to {selectStart + selectLength}";
             countSentences.Text = $"Sentences: {textBox1.Text.Split('.', StringSplitOptions.RemoveEmptyEntries).Length}";
             countWords.Text = $"Words: {textBox1.Text.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length}";
             countCharacters.Text = $"Characters: {textBox1.Text.Length}";
@@ -280,10 +298,18 @@ namespace _07_exercise
 
         private void textBox1_MouseMove(object sender, MouseEventArgs e)
         {
-           if(e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 update_addtionalInfo();
             }
+
+        }
+
+        private void newMenuItem_Click(object sender, EventArgs e)
+        {
+            checkIsSaved();
+            textBox1.Text = "";
+            update_addtionalInfo();
         }
     }
 }
