@@ -21,14 +21,20 @@ namespace _07_exercise
         {
             InitializeComponent();
             this.Text = "The best Notepad";
-            load_settings();
-            apply_settings();
+
+            /*
+             * Menu Events
+             */
             aboutMenuItem.Click += new EventHandler((sender, e) => MessageBox.Show("App made by Gabriel ❤", "About", MessageBoxButtons.OK, MessageBoxIcon.Information));
             undoMenuItem.Click += new EventHandler((sender, e) => textBox1.Undo());
             cutMenuItem.Click += new EventHandler((sender, e) => textBox1.Cut());
             copyMenuItem.Click += new EventHandler((sender, e) => textBox1.Copy());
             pasteMenuItem.Click += new EventHandler((sender, e) => textBox1.Paste());
             selectAllMenuItem.Click += new EventHandler((sender, e) => { textBox1.SelectAll(); update_addtionalInfo(); });
+
+            /*
+             * Left Bar Buttons Events
+             */
             newButton.Click += new EventHandler((sender, e) => newMenuItem.PerformClick());
             undoButton.Click += new EventHandler((sender, e) => undoMenuItem.PerformClick());
             copyButton.Click += new EventHandler((sender, e) => copyMenuItem.PerformClick());
@@ -37,21 +43,43 @@ namespace _07_exercise
             selectAllButton.Click += new EventHandler((sender, e) => selectAllMenuItem.PerformClick());
             textBox1.TextChanged += new EventHandler((sender, e) => { update_addtionalInfo(); needSave = true; });
             textBox1.Click += new EventHandler((sender, e) => update_addtionalInfo());
-            this.ContextMenuStripChanged += new EventHandler((sender, e) => { Trace.WriteLine("uwu"); this.ContextMenuStrip.Closing += new ToolStripDropDownClosingEventHandler((sender, e) => Trace.WriteLine("hey")); });
-            newButton.Image = new Bitmap(Resources.newDoc, new Size(26,26));
+
+            /*
+             *  Left Bar Adding Images to Buttons.
+             */
+            newButton.Image = new Bitmap(Resources.newDoc, new Size(26, 26));
             undoButton.Image = new Bitmap(Resources.undo, new Size(26, 26));
             cutButton.Image = new Bitmap(Resources.cut, new Size(26, 26));
             copyButton.Image = new Bitmap(Resources.copy, new Size(26, 26));
             pasteButton.Image = new Bitmap(Resources.paste, new Size(26, 26));
-            copyButton.Image = new Bitmap(Resources.copy, new Size(26, 26));
             selectAllButton.Image = new Bitmap(Resources.selectAll, new Size(26, 26));
 
+            /*
+             * Context Menu Events 
+             */
+            undoContextMenuItem.Click += new EventHandler((sender, e) => undoMenuItem.PerformClick());
+            cutContextMenuItem.Click += new EventHandler((sender, e) => cutMenuItem.PerformClick());
+            copyContextMenuItem.Click += new EventHandler((sender, e) => copyMenuItem.PerformClick());
+            pasteContextMenuItem.Click += new EventHandler((sender, e) => pasteMenuItem.PerformClick());
+            selectAllContextMenuItem.Click += new EventHandler((sender, e) => selectAllMenuItem.PerformClick());
+
+            /*
+            * Load Json file or creating new Config
+            */
+            load_settings();
+
+            /*
+             * Apply Settings
+             */
+            apply_settings();
 
         }
 
         private void load_settings()
         {
-            //Loading appsettings.json into the config object
+            /*
+             * Loading appsettings.json into the config object
+             */
 
             try
             {
@@ -73,6 +101,10 @@ namespace _07_exercise
 
         private void apply_settings()
         {
+            /*
+             * Apply Settings
+             */
+
             wordwrapMenuItem.Checked = config.WordWrap;
             textBox1.WordWrap = wordwrapMenuItem.Checked;
 
@@ -100,7 +132,10 @@ namespace _07_exercise
 
         private void save_settings()
         {
-            //Change values
+            /*
+             * Change values
+             */
+
             config.WordWrap = wordwrapMenuItem.Checked;
 
             if (defaultMenuItem.Checked)
@@ -127,11 +162,16 @@ namespace _07_exercise
                 WriteIndented = true
             };
 
-            // Serialize the config object
+            /*
+             * Serialize the config object
+             */
+
             jsonWriteOptions.Converters.Add(new JsonStringEnumConverter());
             string newJson = JsonSerializer.Serialize(config, jsonWriteOptions);
 
-            // Overwrite appsettings.json with the new JSON
+            /*
+             * Overwrite appsettings.json with the new JSON
+             */
             string appSettingsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "appsettings.json");
             Debug.WriteLine(appSettingsPath);
 
@@ -149,7 +189,7 @@ namespace _07_exercise
             newRecentFile(openFileDialog.FileName);
         }
 
-        private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = formats;
@@ -161,11 +201,27 @@ namespace _07_exercise
                 s.Close();
             }
             newRecentFile(saveFileDialog.FileName);
+            needSave = false;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            checkIsSaved();
+            if (needSave)
+            {
+                switch (MessageBox.Show("Do you want save changes?", "Save", MessageBoxButtons.YesNoCancel))
+                {
+                    case DialogResult.Yes:
+                        saveMenuItem.PerformClick();
+                        break;
+                    case DialogResult.No:
+                        break;
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                }
+
+            }
+
             save_settings();
         }
 
@@ -200,19 +256,40 @@ namespace _07_exercise
         private void tsmItemClick(object sender, EventArgs e)
         {
             Trace.WriteLine(((ToolStripMenuItem)sender).Text);
-            textBox1.Text = File.ReadAllText(((ToolStripMenuItem)sender).Text);
+            try
+            {
+                textBox1.Text = File.ReadAllText(((ToolStripMenuItem)sender).Text);
+            }
+            catch (DirectoryNotFoundException)
+            {
+                Trace.WriteLine("DirectoryNotFound on tsmItemClick");
+            }
+            catch (Exception)
+            {
+                Trace.WriteLine("DirectoryNotFound on tsmItemClick");
+            }
         }
 
-        private void checkIsSaved()
+        private void newMenuItem_Click(object sender, EventArgs e)
         {
             if (needSave)
             {
-                if (MessageBox.Show("Do you want save changes?", "Save", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                switch (MessageBox.Show("Do you want save changes?", "Save", MessageBoxButtons.YesNoCancel))
                 {
-                    saveMenuItem.PerformClick();
+                    case DialogResult.Yes:
+                        saveMenuItem.PerformClick();
+                        break;
+                    case DialogResult.No:
+                        break;
+                    case DialogResult.Cancel:
+                        return;
                 }
             }
+            textBox1.Text = "";
+            update_addtionalInfo();
+            needSave = false;
         }
+
 
         private void wordwrapToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -293,7 +370,6 @@ namespace _07_exercise
             countSentences.Text = $"Sentences: {textBox1.Text.Split('.', StringSplitOptions.RemoveEmptyEntries).Length}";
             countWords.Text = $"Words: {textBox1.Text.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length}";
             countCharacters.Text = $"Characters: {textBox1.Text.Length}";
-
         }
 
         private void textBox1_MouseMove(object sender, MouseEventArgs e)
@@ -302,14 +378,6 @@ namespace _07_exercise
             {
                 update_addtionalInfo();
             }
-
-        }
-
-        private void newMenuItem_Click(object sender, EventArgs e)
-        {
-            checkIsSaved();
-            textBox1.Text = "";
-            update_addtionalInfo();
         }
     }
 }
