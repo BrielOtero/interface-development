@@ -170,7 +170,7 @@ namespace _06_exercise
 
                 saveFileDialog.Title = "Select the directory";
                 saveFileDialog.InitialDirectory = "C:\\";
-                saveFileDialog.Filter = "texto|*.txt";
+                saveFileDialog.Filter = "Text(*.txt)|*.txt|All files(*.*)|*.*";
                 saveFileDialog.ValidateNames = true;
                 saveFileDialog.ShowDialog();
 

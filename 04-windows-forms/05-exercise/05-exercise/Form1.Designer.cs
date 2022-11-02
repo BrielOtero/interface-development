@@ -29,132 +29,132 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.listBoxLeft = new System.Windows.Forms.ListBox();
+            this.listBoxRight = new System.Windows.Forms.ListBox();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonRem = new System.Windows.Forms.Button();
+            this.buttonTransRight = new System.Windows.Forms.Button();
+            this.buttonTransLeft = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblItems = new System.Windows.Forms.Label();
+            this.lblSelectedItems = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
-            // listBox1
+            // listBoxLeft
             // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listBoxLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(-1, -2);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox1.Size = new System.Drawing.Size(120, 454);
-            this.listBox1.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.listBox1, "Left Box");
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBoxLeft.FormattingEnabled = true;
+            this.listBoxLeft.ItemHeight = 15;
+            this.listBoxLeft.Location = new System.Drawing.Point(-1, -2);
+            this.listBoxLeft.Name = "listBoxLeft";
+            this.listBoxLeft.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBoxLeft.Size = new System.Drawing.Size(120, 454);
+            this.listBoxLeft.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.listBoxLeft, "Left Box");
+            this.listBoxLeft.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // listBox2
+            // listBoxRight
             // 
-            this.listBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listBoxRight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 15;
-            this.listBox2.Location = new System.Drawing.Point(265, -2);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(120, 454);
-            this.listBox2.TabIndex = 1;
+            this.listBoxRight.FormattingEnabled = true;
+            this.listBoxRight.ItemHeight = 15;
+            this.listBoxRight.Location = new System.Drawing.Point(265, -2);
+            this.listBoxRight.Name = "listBoxRight";
+            this.listBoxRight.Size = new System.Drawing.Size(120, 454);
+            this.listBoxRight.TabIndex = 1;
             // 
-            // button1
+            // buttonAdd
             // 
-            this.button1.Location = new System.Drawing.Point(125, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "&Add";
-            this.toolTip1.SetToolTip(this.button1, "Add");
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonAdd.Location = new System.Drawing.Point(125, 12);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(133, 23);
+            this.buttonAdd.TabIndex = 2;
+            this.buttonAdd.Text = "&Add";
+            this.toolTip1.SetToolTip(this.buttonAdd, "Add");
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // buttonRem
             // 
-            this.button2.Location = new System.Drawing.Point(125, 41);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "&Remove";
-            this.toolTip1.SetToolTip(this.button2, "Remove");
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonRem.Location = new System.Drawing.Point(126, 70);
+            this.buttonRem.Name = "buttonRem";
+            this.buttonRem.Size = new System.Drawing.Size(133, 23);
+            this.buttonRem.TabIndex = 3;
+            this.buttonRem.Text = "&Remove";
+            this.toolTip1.SetToolTip(this.buttonRem, "Remove");
+            this.buttonRem.UseVisualStyleBackColor = true;
+            this.buttonRem.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // buttonTransRight
             // 
-            this.button3.Location = new System.Drawing.Point(125, 70);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Transfer &Right ->>";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonTransRight.Location = new System.Drawing.Point(125, 99);
+            this.buttonTransRight.Name = "buttonTransRight";
+            this.buttonTransRight.Size = new System.Drawing.Size(133, 23);
+            this.buttonTransRight.TabIndex = 4;
+            this.buttonTransRight.Text = "Transfer &Right ->>";
+            this.buttonTransRight.UseVisualStyleBackColor = true;
+            this.buttonTransRight.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // buttonTransLeft
             // 
-            this.button4.Location = new System.Drawing.Point(125, 99);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "<<- Transfer &Left";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonTransLeft.Location = new System.Drawing.Point(125, 128);
+            this.buttonTransLeft.Name = "buttonTransLeft";
+            this.buttonTransLeft.Size = new System.Drawing.Size(133, 23);
+            this.buttonTransLeft.TabIndex = 5;
+            this.buttonTransLeft.Text = "<<- Transfer &Left";
+            this.buttonTransLeft.UseVisualStyleBackColor = true;
+            this.buttonTransLeft.Click += new System.EventHandler(this.button4_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 128);
+            this.textBox1.Location = new System.Drawing.Point(125, 41);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(133, 23);
             this.textBox1.TabIndex = 6;
             this.toolTip1.SetToolTip(this.textBox1, "Element");
             // 
-            // label1
+            // lblItems
             // 
-            this.label1.Location = new System.Drawing.Point(125, 164);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 23);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Items: 0";
-            this.toolTip1.SetToolTip(this.label1, "Items Left");
+            this.lblItems.Location = new System.Drawing.Point(125, 164);
+            this.lblItems.Name = "lblItems";
+            this.lblItems.Size = new System.Drawing.Size(133, 23);
+            this.lblItems.TabIndex = 7;
+            this.lblItems.Text = "Items: 0";
+            this.toolTip1.SetToolTip(this.lblItems, "Items Left");
             // 
-            // label2
+            // lblSelectedItems
             // 
-            this.label2.Location = new System.Drawing.Point(126, 187);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 23);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Selected Items: 0";
-            this.toolTip1.SetToolTip(this.label2, "Selected Items");
+            this.lblSelectedItems.Location = new System.Drawing.Point(126, 187);
+            this.lblSelectedItems.Name = "lblSelectedItems";
+            this.lblSelectedItems.Size = new System.Drawing.Size(133, 254);
+            this.lblSelectedItems.TabIndex = 8;
+            this.lblSelectedItems.Text = "Selected Items: ";
+            this.toolTip1.SetToolTip(this.lblSelectedItems, "Selected Items");
             // 
             // Form1
             // 
+            this.AcceptButton = this.buttonAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 450);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblSelectedItems);
+            this.Controls.Add(this.lblItems);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.buttonTransLeft);
+            this.Controls.Add(this.buttonTransRight);
+            this.Controls.Add(this.buttonRem);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.listBoxRight);
+            this.Controls.Add(this.listBoxLeft);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Name = "Form1";
             this.toolTip1.SetToolTip(this, "Form");
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,15 +162,15 @@
 
         #endregion
 
-        private ListBox listBox1;
-        private ListBox listBox2;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private ListBox listBoxLeft;
+        private ListBox listBoxRight;
+        private Button buttonAdd;
+        private Button buttonRem;
+        private Button buttonTransRight;
+        private Button buttonTransLeft;
         private TextBox textBox1;
-        private Label label1;
-        private Label label2;
+        private Label lblItems;
+        private Label lblSelectedItems;
         private ToolTip toolTip1;
     }
 }

@@ -6,7 +6,9 @@ namespace _05_exercise
 {
     public partial class Form1 : Form
     {
-        private string title = "          Exercise 5";
+        private string title ="Exercise 5";
+        private int titleSize = 9;
+        private string titleText;
         private int titleCont;
         private string tempTitle;
 
@@ -14,6 +16,8 @@ namespace _05_exercise
         {
             InitializeComponent();
             Timer timer = new Timer();
+            titleText = "    " + title + "    ";
+            this.Text = titleText.Substring(0, titleSize);
             timer.Interval = 200;
             timer.Tick += new EventHandler(TimerEventProcessor);
             timer.Start();
@@ -27,14 +31,18 @@ namespace _05_exercise
 
             if (titleCont <= 0)
             {
-                titleCont = title.Length - 1;
+                titleCont = titleText.Length - 1;
             }
             else
             {
-                tempTitle = title[titleCont] + this.Text;
+                tempTitle = titleText[titleCont] + this.Text;
 
-                this.Text = titleCont < 10 ? tempTitle.Substring(0, 9) : tempTitle;
+                if (tempTitle.Length >= titleSize)
+                {
+                    tempTitle = tempTitle.Substring(0, titleSize);
+                }
 
+                this.Text = tempTitle;
                 titleCont--;
             }
         }
@@ -51,33 +59,30 @@ namespace _05_exercise
             checkSize();
         }
 
-
-
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                getAndAddToLeft();
-            }
-            checkSize();
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
-            for (int i = listBox1.SelectedItems.Count - 1; i >= 0; i--)
+            if (listBoxLeft.Items.Count > 0 && listBoxLeft.SelectedItems.Count > 0)
             {
-                listBox2.Items.Insert(0, listBox1.SelectedItems[i]);
+
+                for (int i = listBoxLeft.SelectedItems.Count - 1; i >= 0; i--)
+                {
+                    listBoxRight.Items.Insert(0, listBoxLeft.SelectedItems[i]);
+                }
+
+                removeElementsBox1();
+                checkSize();
             }
 
-            removeElementsBox1();
-            checkSize();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Insert(0, listBox2.SelectedItem);
-            listBox2.Items.Remove(listBox2.SelectedItem);
-            checkSize();
+            if (listBoxRight.Items.Count > 0 && listBoxRight.SelectedItems.Count>0)
+            {
+                listBoxLeft.Items.Insert(0, listBoxRight.SelectedItem);
+                listBoxRight.Items.Remove(listBoxRight.SelectedItem);
+                checkSize();
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,27 +91,39 @@ namespace _05_exercise
         }
         private void removeElementsBox1()
         {
-            for (int i = listBox1.Items.Count - 1; i >= 0; i--)
+            for (int i = listBoxLeft.Items.Count - 1; i >= 0; i--)
             {
-                if (listBox1.SelectedItems.Contains(listBox1.Items[i]))
+                if (listBoxLeft.SelectedItems.Contains(listBoxLeft.Items[i]))
                 {
-                    listBox1.Items.RemoveAt(i);
+                    listBoxLeft.Items.RemoveAt(i);
                 }
             }
         }
         private void getAndAddToLeft()
         {
-            if (!listBox1.Items.Contains(textBox1.Text))
+            if (textBox1.Text.Trim() != "")
             {
-                listBox1.Items.Add(textBox1.Text);
+                if (!listBoxLeft.Items.Contains(textBox1.Text))
+                {
+                    listBoxLeft.Items.Add(textBox1.Text);
+                }
             }
+
         }
 
         private void checkSize()
         {
-            label1.Text = "Items: " + listBox1.Items.Count.ToString();
-            label2.Text = "Selected Items: " + listBox1.SelectedItems.Count.ToString();
-            toolTip1.SetToolTip(listBox2, "Items: " + listBox2.Items.Count.ToString());
+            string index = "";
+
+            lblItems.Text = "Items: " + listBoxLeft.Items.Count.ToString();
+
+            for (int i = 0; i < listBoxLeft.SelectedIndices.Count; i++)
+            {
+                index += "\n"+listBoxLeft.SelectedIndices[i].ToString();
+            }
+
+            lblSelectedItems.Text = "Selected Items: " + index;
+            toolTip1.SetToolTip(listBoxRight, "Items: " + listBoxRight.Items.Count.ToString());
         }
 
 

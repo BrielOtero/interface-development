@@ -14,19 +14,19 @@ namespace _06_exercise
     {
         private int pinNumber = 1234;
         private int tries = 3;
+        private bool find = false;
         public Pin()
         {
             InitializeComponent();
             this.Text = "Insert Pin";
             textBox1.PasswordChar = '*';
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             checkPin();
         }
- 
+
 
         private void checkPin()
         {
@@ -37,6 +37,7 @@ namespace _06_exercise
                 if (pin == pinNumber)
                 {
                     this.DialogResult = DialogResult.OK;
+                    find = true;
                     this.Close();
                 }
             }
@@ -56,8 +57,11 @@ namespace _06_exercise
 
         private void Pin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel=true;
-            Environment.Exit(0);
+            if (!find)
+            {
+                e.Cancel = true;
+                Environment.Exit(0);
+            }
         }
     }
 }
