@@ -29,95 +29,95 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnLeft = new System.Windows.Forms.Button();
+            this.btnRight = new System.Windows.Forms.Button();
+            this.lblPath = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.cmsRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.nextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beforeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.contextMenuStrip1.SuspendLayout();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.cmsRightClick.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnOpen
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "&Open";
-            this.toolTip1.SetToolTip(this.button1, "Open File");
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnOpen.Location = new System.Drawing.Point(12, 12);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(75, 23);
+            this.btnOpen.TabIndex = 0;
+            this.btnOpen.Text = "&Open";
+            this.toolTip.SetToolTip(this.btnOpen, "Open File");
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.button1_Click);
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanel
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 53);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 400);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel.Location = new System.Drawing.Point(0, 53);
+            this.flowLayoutPanel.Name = "flowLayoutPanel";
+            this.flowLayoutPanel.Size = new System.Drawing.Size(800, 400);
+            this.flowLayoutPanel.TabIndex = 1;
             // 
-            // button2
+            // btnLeft
             // 
-            this.button2.BackgroundImage = global::_08_exercise.Properties.Resources.left;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Location = new System.Drawing.Point(93, 10);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(27, 27);
-            this.button2.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.button2, "Previous Photo");
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnLeft.BackgroundImage = global::_08_exercise.Properties.Resources.left;
+            this.btnLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLeft.Location = new System.Drawing.Point(93, 10);
+            this.btnLeft.Name = "btnLeft";
+            this.btnLeft.Size = new System.Drawing.Size(27, 27);
+            this.btnLeft.TabIndex = 2;
+            this.toolTip.SetToolTip(this.btnLeft, "Previous Photo");
+            this.btnLeft.UseVisualStyleBackColor = true;
+            this.btnLeft.Visible = false;
+            this.btnLeft.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnRight
             // 
-            this.button3.BackgroundImage = global::_08_exercise.Properties.Resources.right;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Location = new System.Drawing.Point(126, 10);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(27, 27);
-            this.button3.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.button3, "Next Photo");
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnRight.BackgroundImage = global::_08_exercise.Properties.Resources.right;
+            this.btnRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRight.Location = new System.Drawing.Point(126, 10);
+            this.btnRight.Name = "btnRight";
+            this.btnRight.Size = new System.Drawing.Size(27, 27);
+            this.btnRight.TabIndex = 3;
+            this.toolTip.SetToolTip(this.btnRight, "Next Photo");
+            this.btnRight.UseVisualStyleBackColor = true;
+            this.btnRight.Visible = false;
+            this.btnRight.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label1
+            // lblPath
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(170, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
-            this.label1.Visible = false;
+            this.lblPath.AutoSize = true;
+            this.lblPath.Location = new System.Drawing.Point(170, 16);
+            this.lblPath.Name = "lblPath";
+            this.lblPath.Size = new System.Drawing.Size(38, 15);
+            this.lblPath.TabIndex = 4;
+            this.lblPath.Text = "label1";
+            this.lblPath.Visible = false;
             // 
-            // label2
+            // lblInfo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(426, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "label2";
-            this.label2.Visible = false;
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(426, 16);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(38, 15);
+            this.lblInfo.TabIndex = 5;
+            this.lblInfo.Text = "label2";
+            this.lblInfo.Visible = false;
             // 
-            // contextMenuStrip1
+            // cmsRightClick
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nextToolStripMenuItem,
             this.beforeToolStripMenuItem,
             this.closeToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 70);
+            this.cmsRightClick.Name = "contextMenuStrip1";
+            this.cmsRightClick.Size = new System.Drawing.Size(155, 70);
             // 
             // nextToolStripMenuItem
             // 
@@ -145,19 +145,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblInfo);
+            this.Controls.Add(this.lblPath);
+            this.Controls.Add(this.btnRight);
+            this.Controls.Add(this.btnLeft);
+            this.Controls.Add(this.flowLayoutPanel);
+            this.Controls.Add(this.btnOpen);
             this.KeyPreview = true;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.cmsRightClick.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,16 +165,16 @@
 
         #endregion
 
-        private Button button1;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Button button2;
-        private Button button3;
-        private Label label1;
-        private Label label2;
-        private ContextMenuStrip contextMenuStrip1;
+        private Button btnOpen;
+        private FlowLayoutPanel flowLayoutPanel;
+        private Button btnLeft;
+        private Button btnRight;
+        private Label lblPath;
+        private Label lblInfo;
+        private ContextMenuStrip cmsRightClick;
         private ToolStripMenuItem nextToolStripMenuItem;
         private ToolStripMenuItem beforeToolStripMenuItem;
         private ToolStripMenuItem closeToolStripMenuItem;
-        private ToolTip toolTip1;
+        private ToolTip toolTip;
     }
 }

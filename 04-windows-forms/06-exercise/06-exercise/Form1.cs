@@ -143,24 +143,6 @@ namespace _06_exercise
             MessageBox.Show("App created by Gabriel Otero.\r19/10/2022", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void separatorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string newText = "";
-
-            for (int i = 0; i < textBox1.Text.Length; i++)
-            {
-                if (i % 3 == 0 && i != 0)
-                {
-                    newText += "-" + textBox1.Text[i];
-                }
-                else
-                {
-                    newText += textBox1.Text[i];
-                }
-            }
-
-            textBox1.Text = newText;
-        }
 
         private void saveNumberToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -171,12 +153,13 @@ namespace _06_exercise
                 saveFileDialog.Title = "Select the directory";
                 saveFileDialog.InitialDirectory = "C:\\";
                 saveFileDialog.Filter = "Text(*.txt)|*.txt|All files(*.*)|*.*";
+                saveFileDialog.OverwritePrompt = false;
                 saveFileDialog.ValidateNames = true;
                 saveFileDialog.ShowDialog();
 
                 StreamWriter s;
-                s = new StreamWriter(saveFileDialog.FileName);
-                s.Write(this.textBox1.Text);
+                s = new StreamWriter(saveFileDialog.FileName,true);
+                s.Write(this.textBox1.Text+Environment.NewLine);
                 s.Close();
             }
 

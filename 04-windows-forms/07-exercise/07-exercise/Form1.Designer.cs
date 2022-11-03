@@ -29,47 +29,47 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxSubjects = new System.Windows.Forms.ComboBox();
+            this.cbxStudents = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTableInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // comboBox2
+            // cbxSubjects
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(191, 12);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(173, 23);
-            this.comboBox2.TabIndex = 0;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
+            this.cbxSubjects.FormattingEnabled = true;
+            this.cbxSubjects.Location = new System.Drawing.Point(191, 12);
+            this.cbxSubjects.Name = "cbxSubjects";
+            this.cbxSubjects.Size = new System.Drawing.Size(173, 23);
+            this.cbxSubjects.TabIndex = 0;
+            this.cbxSubjects.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
-            // comboBox1
+            // cbxStudents
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(173, 23);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
+            this.cbxStudents.FormattingEnabled = true;
+            this.cbxStudents.Location = new System.Drawing.Point(12, 12);
+            this.cbxStudents.Name = "cbxStudents";
+            this.cbxStudents.Size = new System.Drawing.Size(173, 23);
+            this.cbxStudents.TabIndex = 1;
+            this.cbxStudents.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
-            // label1
+            // lblTableInfo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(370, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.lblTableInfo.AutoSize = true;
+            this.lblTableInfo.Location = new System.Drawing.Point(370, 15);
+            this.lblTableInfo.Name = "lblTableInfo";
+            this.lblTableInfo.Size = new System.Drawing.Size(38, 15);
+            this.lblTableInfo.TabIndex = 2;
+            this.lblTableInfo.Text = "label1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.lblTableInfo);
+            this.Controls.Add(this.cbxStudents);
+            this.Controls.Add(this.cbxSubjects);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -79,9 +79,9 @@
 
         #endregion
 
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private ComboBox cbxSubjects;
+        private ComboBox cbxStudents;
         private ToolTip toolTip1;
-        private Label label1;
+        private Label lblTableInfo;
     }
 }

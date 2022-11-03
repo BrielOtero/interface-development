@@ -46,7 +46,7 @@ namespace _08_exercise
                 }
 
                 if (images.Count <= 0) return;
-                flowLayoutPanel1.Controls.AddRange(picturesBox.ToArray());
+                flowLayoutPanel.Controls.AddRange(picturesBox.ToArray());
 
                 Trace.WriteLine(imagesInfo.Count);
 
@@ -54,11 +54,11 @@ namespace _08_exercise
                 form2.Text = imagesInfo.ElementAt(selectedImage).Name;
                 form2.Show();
 
-                button2.Visible = true;
-                button3.Visible = true;
+                btnLeft.Visible = true;
+                btnRight.Visible = true;
                 update_labels();
-                label1.Visible = true;
-                label2.Visible = true;
+                lblPath.Visible = true;
+                lblInfo.Visible = true;
 
 
             }
@@ -70,7 +70,7 @@ namespace _08_exercise
             pb = new PictureBox();
             pb.Size = new Size(100, 100);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
-            pb.ContextMenuStrip = contextMenuStrip1;
+            pb.ContextMenuStrip = cmsRightClick;
             pb.Image = image;
             pb.Tag = tag;
             pb.MouseClick += Pb_MouseClick;
@@ -157,8 +157,8 @@ namespace _08_exercise
         {
             if (imagesInfo != null)
             {
-                label1.Text = imagesInfo.ElementAt(selectedImage).Directory.ToString();
-                label2.Text = $"Name: {imagesInfo.ElementAt(selectedImage).Name}\nSize: {convertBytes(imagesInfo.ElementAt(selectedImage).Length)}\nResolution: {images.ElementAt(selectedImage).Width}x{images.ElementAt(selectedImage).Height}";
+                lblPath.Text = imagesInfo.ElementAt(selectedImage).Directory.ToString();
+                lblInfo.Text = $"Name: {imagesInfo.ElementAt(selectedImage).Name}\nSize: {convertBytes(imagesInfo.ElementAt(selectedImage).Length)}\nResolution: {images.ElementAt(selectedImage).Width}x{images.ElementAt(selectedImage).Height}";
             }
         }
 
@@ -191,12 +191,12 @@ namespace _08_exercise
                 form2.Close();
             }
             imagesInfo.Clear();
-            flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel.Controls.Clear();
             picturesBox.Clear();
-            button2.Visible = false;
-            button3.Visible = false;
-            label1.Visible = false;
-            label2.Visible = false;
+            btnLeft.Visible = false;
+            btnRight.Visible = false;
+            lblPath.Visible = false;
+            lblInfo.Visible = false;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

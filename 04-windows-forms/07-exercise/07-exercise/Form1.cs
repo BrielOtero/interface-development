@@ -38,8 +38,8 @@ namespace _07_exercise
             subjects = Enum.GetNames(typeof(Subjects));
             DEFAULT_BACKGROUND = Form1.DefaultBackColor;
 
-            comboBox1.Items.AddRange(c.students);
-            comboBox2.Items.AddRange(subjects);
+            cbxStudents.Items.AddRange(c.students);
+            cbxSubjects.Items.AddRange(subjects);
 
             lbl1_update();
 
@@ -104,20 +104,20 @@ namespace _07_exercise
 
         private void lbl1_update()
         {
-            label1.Text = $"Table Average: {c.GetAverageTable()}";
+            lblTableInfo.Text = $"Table Average: {c.GetAverageTable()}";
 
-            int indexStu = comboBox1.SelectedIndex;
-            int indexSub = comboBox2.SelectedIndex;
+            int indexStu = cbxStudents.SelectedIndex;
+            int indexSub = cbxSubjects.SelectedIndex;
 
             if (indexStu != -1)
             {
                 c.GetMaxMinStudent(indexStu, out int min, out int max);
-                label1.Text += $"\rAverage for {comboBox1.SelectedItem}: {c.GetAverageStudent(comboBox1.SelectedIndex)}\r{comboBox1.SelectedItem} has Min: {min} Max: {max}";
+                lblTableInfo.Text += $"\rAverage for {cbxStudents.SelectedItem}: {c.GetAverageStudent(cbxStudents.SelectedIndex)}\r{cbxStudents.SelectedItem} has Min: {min} Max: {max}";
             }
 
             if (indexSub != -1)
             {
-                label1.Text += $"\rAverage for {comboBox2.SelectedItem}: {c.GetAverageSubject(comboBox2.SelectedIndex)}";
+                lblTableInfo.Text += $"\rAverage for {cbxSubjects.SelectedItem}: {c.GetAverageSubject(cbxSubjects.SelectedIndex)}";
             }
         }
 
