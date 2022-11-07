@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,7 @@ namespace _06_exercise
         {
             bool valid = int.TryParse(textBox1.Text, out int pin);
 
+            Trace.WriteLine(valid);
             if (valid)
             {
                 if (pin == pinNumber)
@@ -44,7 +46,7 @@ namespace _06_exercise
 
             tries--;
 
-            if (tries <= 0)
+            if (tries < 0)
             {
                 this.DialogResult = DialogResult.Cancel;
                 Environment.Exit(0);

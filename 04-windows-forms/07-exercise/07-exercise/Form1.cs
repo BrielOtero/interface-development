@@ -20,6 +20,8 @@ namespace _07_exercise
             try
             {
                 students = File.ReadAllText(Environment.GetEnvironmentVariable("userprofile") + Path.DirectorySeparatorChar.ToString() + "students.csv");
+
+                if (students.Length <= 0) { return; }
             }
             catch (FileNotFoundException)
             {

@@ -58,9 +58,8 @@
             this.lblTableInfo.AutoSize = true;
             this.lblTableInfo.Location = new System.Drawing.Point(370, 15);
             this.lblTableInfo.Name = "lblTableInfo";
-            this.lblTableInfo.Size = new System.Drawing.Size(38, 15);
+            this.lblTableInfo.Size = new System.Drawing.Size(0, 15);
             this.lblTableInfo.TabIndex = 2;
-            this.lblTableInfo.Text = "label1";
             // 
             // Form1
             // 
