@@ -85,7 +85,7 @@ namespace _07_exercise
             {
                 Debug.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
                 config = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile("appsettings.json").Build().Get<Config>();
-
+                Trace.WriteLine(config.BackgroundColor);
             }
             catch (IOException)
             {
@@ -378,6 +378,11 @@ namespace _07_exercise
             {
                 update_addtionalInfo();
             }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            update_addtionalInfo();
         }
     }
 }

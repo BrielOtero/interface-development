@@ -27,7 +27,26 @@ namespace _08_exercise
                 clearForm();
                 di = new DirectoryInfo(fbd.SelectedPath);
                 Trace.WriteLine(fbd.SelectedPath);
-                imagesInfo = allowedExtensions.SelectMany(i => di.GetFiles(i, SearchOption.TopDirectoryOnly)).ToList();
+                try
+                {
+                    imagesInfo = allowedExtensions.SelectMany(i => di.GetFiles(i, SearchOption.TopDirectoryOnly)).ToList();
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    Trace.WriteLine("Unauthorized Access");
+                    return;
+                }
+                catch (ArgumentNullException)
+                {
+                    Trace.WriteLine("Argument Null");
+                    return;
+                }
+                catch (Exception)
+                {
+                    Trace.WriteLine("Generic Exception");
+                    return;
+                }
+
                 Trace.WriteLine(imagesInfo.Count);
 
                 for (int i = imagesInfo.Count - 1; i >= 0; i--)
@@ -50,7 +69,7 @@ namespace _08_exercise
 
                 Trace.WriteLine(imagesInfo.Count);
 
-                form2 = new Form2(images.ElementAt(selectedImage));
+                form2 = new Form2(images.ElementAt(selectedImage),this);
                 form2.Text = imagesInfo.ElementAt(selectedImage).Name;
                 form2.Show();
 
@@ -116,6 +135,11 @@ namespace _08_exercise
         {
             form2.Text = imagesInfo.ElementAt(index).Name;
             form2.pictureBox1.Image = images.ElementAt(index);
+
+            if (!form2.Visible)
+            {
+                form2.Visible = true;
+            }
             update_labels();
 
         }
