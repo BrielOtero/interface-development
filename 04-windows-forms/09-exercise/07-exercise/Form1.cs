@@ -14,6 +14,7 @@ namespace _07_exercise
         public object Properties { get; private set; }
         private Config config;
         private List<string> recentFiles;
+        private string saveConfigPath;
         private string lastDir;
         private string formats = "Text Files (*.txt)|*.txt|Ini Files (*.ini)|*.ini|Java Files (*.java)|*.java|C Sharp Files (*.cs)|*.cs|Python Files (*.py)|*.py|Html Files (*.html)|*.html|Css Files (*.css)|*.css|Xml Files (*.xml)|*.xml|All Files (*.*)|*.*";
         private bool needSave = false;
@@ -21,6 +22,23 @@ namespace _07_exercise
         {
             InitializeComponent();
             this.Text = "The best Notepad";
+
+            try
+            {
+                saveConfigPath = Environment.GetEnvironmentVariable("appdata") + Path.DirectorySeparatorChar + "thebestnotepad";
+                if (!Directory.Exists(saveConfigPath))
+                {
+                    Directory.CreateDirectory(saveConfigPath);
+                }
+            }
+            catch (IOException)
+            {
+                return;
+            }
+            catch (Exception)
+            {
+                return;
+            }
 
             /*
              * Menu Events
@@ -84,8 +102,7 @@ namespace _07_exercise
             try
             {
                 Debug.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
-                config = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile("appsettings.json").Build().Get<Config>();
-                Trace.WriteLine(config.BackgroundColor);
+                config = new ConfigurationBuilder().SetBasePath(saveConfigPath).AddJsonFile("appsettings.json").Build().Get<Config>();
             }
             catch (IOException)
             {
@@ -120,10 +137,10 @@ namespace _07_exercise
                     lowerCaseMenuItem.Checked = true;
                     break;
             }
+            textBox1.ForeColor = Color.FromArgb(config.FontColor);
+            textBox1.BackColor = Color.FromArgb(config.BackgroundColor);
+            textBox1.Font = new Font(config.Font, (float)config.FontSize, (FontStyle)config.FontSty);
 
-            textBox1.ForeColor = config.FontColor;
-            textBox1.BackColor = config.BackgroundColor;
-            textBox1.Font = config.Font;
             lastDir = config.LastDir;
             recentFiles = config.RecentFiles;
 
@@ -151,9 +168,11 @@ namespace _07_exercise
                 config.Mode = 2;
             }
 
-            config.FontColor = textBox1.ForeColor;
-            config.BackgroundColor = textBox1.BackColor;
-            config.Font = textBox1.Font;
+            config.FontColor = textBox1.ForeColor.ToArgb();
+            config.BackgroundColor = textBox1.BackColor.ToArgb();
+            config.Font = textBox1.Font.FontFamily.Name;
+            config.FontSty = (int)textBox1.Font.Style;
+            config.FontSize = textBox1.Font.Size;
             config.LastDir = lastDir;
             config.RecentFiles = recentFiles;
 
@@ -172,7 +191,7 @@ namespace _07_exercise
             /*
              * Overwrite appsettings.json with the new JSON
              */
-            string appSettingsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "appsettings.json");
+            string appSettingsPath = Path.Combine(saveConfigPath, "appsettings.json");
             Debug.WriteLine(appSettingsPath);
 
             File.WriteAllText(appSettingsPath, newJson);
@@ -187,6 +206,7 @@ namespace _07_exercise
                 textBox1.Text = File.ReadAllText(openFileDialog.FileName);
             }
             newRecentFile(openFileDialog.FileName);
+            needSave = false;
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -259,6 +279,7 @@ namespace _07_exercise
             try
             {
                 textBox1.Text = File.ReadAllText(((ToolStripMenuItem)sender).Text);
+                needSave = false;
             }
             catch (DirectoryNotFoundException)
             {
@@ -380,7 +401,7 @@ namespace _07_exercise
             }
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Form_Key(object sender, KeyEventArgs e)
         {
             update_addtionalInfo();
         }

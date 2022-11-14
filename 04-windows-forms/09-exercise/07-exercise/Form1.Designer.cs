@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -429,6 +430,8 @@
             // 
             // topBar
             // 
+            this.topBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.topBar.AutoSize = false;
             this.topBar.BackColor = System.Drawing.SystemColors.Window;
             this.topBar.Dock = System.Windows.Forms.DockStyle.None;
@@ -641,13 +644,15 @@
             this.Controls.Add(this.topBar);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_Key);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form_Key);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.contextMenuStrip.ResumeLayout(false);

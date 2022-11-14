@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>09-exercise</id>
+    <version>1.0.0</version>
+    <authors>09-exercise</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0-windows7.0">
+        <dependency id="Microsoft.Extensions.Configuration.Binder" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="6.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\09-exercise.runtimeconfig.json" target="lib\net6.0-windows7.0\09-exercise.runtimeconfig.json" />
+    <file src="C:\Users\Gabriel\git\Interface-Development\04-windows-forms\09-exercise\07-exercise\bin\Debug\net6.0-windows\09-exercise.dll" target="lib\net6.0-windows7.0\09-exercise.dll" />
+  </files>
+</package>
