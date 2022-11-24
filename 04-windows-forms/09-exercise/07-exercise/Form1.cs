@@ -405,5 +405,10 @@ namespace _07_exercise
         {
             update_addtionalInfo();
         }
+
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

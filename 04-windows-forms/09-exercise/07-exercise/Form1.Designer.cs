@@ -198,19 +198,20 @@
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
             this.editToolStripMenuItem1.Size = new System.Drawing.Size(39, 23);
             this.editToolStripMenuItem1.Text = "&Edit";
+            this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
             // undoMenuItem
             // 
             this.undoMenuItem.Image = global::_07_exercise.Properties.Resources.undo;
             this.undoMenuItem.Name = "undoMenuItem";
             this.undoMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.undoMenuItem.Size = new System.Drawing.Size(180, 22);
             this.undoMenuItem.Text = "&Undo";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // cutMenuItem
             // 
@@ -218,16 +219,17 @@
             this.cutMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cutMenuItem.Name = "cutMenuItem";
             this.cutMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.cutMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cutMenuItem.Text = "Cu&t";
             // 
             // copyMenuItem
             // 
             this.copyMenuItem.Image = global::_07_exercise.Properties.Resources.copy;
+            this.copyMenuItem.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.copyMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copyMenuItem.Name = "copyMenuItem";
             this.copyMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.copyMenuItem.Size = new System.Drawing.Size(180, 22);
             this.copyMenuItem.Text = "&Copy";
             // 
             // pasteMenuItem
@@ -236,20 +238,20 @@
             this.pasteMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pasteMenuItem.Name = "pasteMenuItem";
             this.pasteMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.pasteMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pasteMenuItem.Text = "&Paste";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // selectAllMenuItem
             // 
             this.selectAllMenuItem.Image = global::_07_exercise.Properties.Resources.selectAll;
             this.selectAllMenuItem.Name = "selectAllMenuItem";
             this.selectAllMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.selectAllMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.selectAllMenuItem.Size = new System.Drawing.Size(180, 22);
             this.selectAllMenuItem.Text = "Select &All";
             // 
             // toolsToolStripMenuItem1
