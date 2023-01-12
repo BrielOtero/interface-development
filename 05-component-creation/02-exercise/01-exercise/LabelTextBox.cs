@@ -29,19 +29,20 @@ namespace _01_exercise
 
         private int separation = 0;
 
-       
+        private char pswChr;
 
         [Category("Property")]
         [Description("Value of PswChr")]
         public char PswChr
         {
             set
-            { 
-                    txt.PasswordChar = value;
+            {
+                    pswChr = value;
+                    txt.PasswordChar = pswChr;
             }
             get
             {
-                return txt.PasswordChar;
+                return pswChr;
             }
         }
 

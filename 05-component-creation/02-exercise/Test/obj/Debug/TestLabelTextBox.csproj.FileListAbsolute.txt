@@ -1,0 +1,14 @@
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\bin\Debug\Test.exe.config
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\bin\Debug\Test.exe
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\bin\Debug\Test.pdb
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\bin\Debug\01-exercise.dll
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\bin\Debug\01-exercise.pdb
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\obj\Debug\TestLabelTextBox.csproj.AssemblyReference.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\obj\Debug\TestLabelTextBox.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\obj\Debug\Test.Form1.resources
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\obj\Debug\Test.Properties.Resources.resources
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\obj\Debug\TestLabelTextBox.csproj.GenerateResource.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\obj\Debug\TestLabelTextBox.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\obj\Debug\TestLabelTextBox.csproj.CopyComplete
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\obj\Debug\Test.exe
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\Test\obj\Debug\Test.pdb

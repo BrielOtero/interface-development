@@ -1,0 +1,14 @@
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\obj\Debug\TestWarningLabel.csproj.AssemblyReference.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\obj\Debug\TestWarningLabel.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\obj\Debug\TestWarningLabel.Form1.resources
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\obj\Debug\TestWarningLabel.Properties.Resources.resources
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\obj\Debug\TestWarningLabel.csproj.GenerateResource.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\obj\Debug\TestWarningLabel.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\bin\Debug\TestWarningLabel.exe.config
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\bin\Debug\TestWarningLabel.exe
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\bin\Debug\TestWarningLabel.pdb
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\bin\Debug\01-exercise.dll
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\bin\Debug\01-exercise.pdb
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\obj\Debug\TestWarningLabel.csproj.CopyComplete
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\obj\Debug\TestWarningLabel.exe
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\02-exercise\TestWarningLabel\obj\Debug\TestWarningLabel.pdb
