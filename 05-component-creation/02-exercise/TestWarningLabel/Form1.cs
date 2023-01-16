@@ -19,7 +19,8 @@ namespace TestWarningLabel
             cbChangeMark.Items.Add(eMark.Nothing);
             cbChangeMark.Items.Add(eMark.Circle);
             cbChangeMark.Items.Add(eMark.Cross);
-            cbChangeMark.SelectedItem = 0;
+            cbChangeMark.Items.Add(eMark.Image);
+            cbChangeMark.SelectedIndex = 0;
 
         }
 
@@ -31,12 +32,17 @@ namespace TestWarningLabel
 
         private void cbChangeMark_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //lblWarning.Mark = cbChangeMark.SelectedItem;
+            lblWarning.Mark = (eMark)cbChangeMark.SelectedItem;
         }
 
         private void lblWarning_ClickOnMark(object sender, EventArgs e)
         {
             MessageBox.Show(this, "You have clicked on the mark", "Click on mark", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void lblWarning_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

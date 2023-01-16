@@ -35,7 +35,7 @@
             // 
             // btnChangeGradient
             // 
-            this.btnChangeGradient.Location = new System.Drawing.Point(33, 74);
+            this.btnChangeGradient.Location = new System.Drawing.Point(194, 12);
             this.btnChangeGradient.Name = "btnChangeGradient";
             this.btnChangeGradient.Size = new System.Drawing.Size(106, 23);
             this.btnChangeGradient.TabIndex = 1;
@@ -46,7 +46,7 @@
             // cbChangeMark
             // 
             this.cbChangeMark.FormattingEnabled = true;
-            this.cbChangeMark.Location = new System.Drawing.Point(33, 103);
+            this.cbChangeMark.Location = new System.Drawing.Point(194, 41);
             this.cbChangeMark.Name = "cbChangeMark";
             this.cbChangeMark.Size = new System.Drawing.Size(102, 21);
             this.cbChangeMark.TabIndex = 3;
@@ -54,22 +54,25 @@
             // 
             // lblWarning
             // 
-            this.lblWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWarning.EndGradientColor = System.Drawing.Color.OrangeRed;
+            this.lblWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWarning.HasGradient = true;
-            this.lblWarning.Location = new System.Drawing.Point(33, 23);
+            this.lblWarning.Location = new System.Drawing.Point(12, 12);
             this.lblWarning.Mark = Test.eMark.Image;
-            this.lblWarning.MarkImage = global::TestWarningLabel.Properties.Resources.copy;
+            this.lblWarning.MarkImage = null;
             this.lblWarning.Name = "lblWarning";
-            this.lblWarning.Size = new System.Drawing.Size(128, 23);
+            this.lblWarning.Size = new System.Drawing.Size(89, 20);
+            this.lblWarning.StartGradientColor = System.Drawing.Color.MidnightBlue;
             this.lblWarning.TabIndex = 0;
             this.lblWarning.Text = "WARNING!";
             this.lblWarning.ClickOnMark += new System.EventHandler(this.lblWarning_ClickOnMark);
+            this.lblWarning.Click += new System.EventHandler(this.lblWarning_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(312, 189);
+            this.ClientSize = new System.Drawing.Size(528, 196);
             this.Controls.Add(this.cbChangeMark);
             this.Controls.Add(this.btnChangeGradient);
             this.Controls.Add(this.lblWarning);

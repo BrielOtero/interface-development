@@ -1,0 +1,8 @@
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\03-exercise\03-exercise\bin\Debug\03-exercise.dll
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\03-exercise\03-exercise\bin\Debug\03-exercise.pdb
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\03-exercise\03-exercise\obj\Debug\03-exercise.csproj.AssemblyReference.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\03-exercise\03-exercise\obj\Debug\_03_exercise.MediaPlayer.resources
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\03-exercise\03-exercise\obj\Debug\03-exercise.csproj.GenerateResource.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\03-exercise\03-exercise\obj\Debug\03-exercise.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\03-exercise\03-exercise\obj\Debug\03-exercise.dll
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\03-exercise\03-exercise\obj\Debug\03-exercise.pdb

@@ -32,7 +32,7 @@
             // 
             // WarningLabel
             // 
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.WarningLabel_MouseClick);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.warningLabel_MouseClick);
             this.ResumeLayout(false);
 
         }

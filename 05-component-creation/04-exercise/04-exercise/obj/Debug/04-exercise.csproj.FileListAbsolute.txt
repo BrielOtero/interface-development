@@ -1,0 +1,6 @@
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\04-exercise\04-exercise\bin\Debug\04-exercise.dll
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\04-exercise\04-exercise\bin\Debug\04-exercise.pdb
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\04-exercise\04-exercise\obj\Debug\04-exercise.csproj.AssemblyReference.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\04-exercise\04-exercise\obj\Debug\04-exercise.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\04-exercise\04-exercise\obj\Debug\04-exercise.dll
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\04-exercise\04-exercise\obj\Debug\04-exercise.pdb
