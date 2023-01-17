@@ -1,6 +1,6 @@
-﻿namespace _04_exercise
+﻿namespace _05_Exercise
 {
-    partial class DrawHanged
+    partial class ValidateTextBox
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // DrawHanged
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "DrawHanged";
-            this.Size = new System.Drawing.Size(185, 205);
-            this.SizeChanged += new System.EventHandler(this.DrawHanged_SizeChanged);
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
         }
 
         #endregion

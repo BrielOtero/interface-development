@@ -10,3 +10,5 @@ C:\Users\ID\git\Class\Interface-Development\05-component-creation\04-exercise\04
 C:\Users\ID\git\Class\Interface-Development\05-component-creation\04-exercise\04-exercise\obj\Debug\04-exercise.csproj.CoreCompileInputs.cache
 C:\Users\ID\git\Class\Interface-Development\05-component-creation\04-exercise\04-exercise\obj\Debug\04-exercise.dll
 C:\Users\ID\git\Class\Interface-Development\05-component-creation\04-exercise\04-exercise\obj\Debug\04-exercise.pdb
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\04-exercise\04-exercise\obj\Debug\_04_exercise.DrawHanged.resources
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\04-exercise\04-exercise\obj\Debug\04-exercise.csproj.GenerateResource.cache

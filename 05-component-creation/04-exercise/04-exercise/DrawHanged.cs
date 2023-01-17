@@ -7,19 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace _04_exercise
 {
     public partial class DrawHanged : UserControl
     {
+        [Category("The Property Change")]
+        [Description("Fired when the " + nameof(Mistakes) + " property change")]
         public event EventHandler MistakesChanged;
+
+        [Category("The Property Change")]
+        [Description("Fired when the " + nameof(Mistakes) + " is 7")]
         public event EventHandler Hanged;
-        private float UNIT_SCALE = 2f;
+
+
+        private int DEFAULT_WIDTH = 185;
+        private int DEFAULT_HEIGHT = 205;
+
+        private float DEFAULT_UNIT_SCALE_X = 1f;
+        private float DEFAULT_UNIT_SCALE_Y = 1f;
+
+        private float UNIT_SCALE_X;
+        private float UNIT_SCALE_Y;
 
 
         public DrawHanged()
         {
             InitializeComponent();
+
+            this.Width = DEFAULT_WIDTH;
+            this.Height = DEFAULT_HEIGHT;
+
+            UNIT_SCALE_X = DEFAULT_UNIT_SCALE_X;
+            UNIT_SCALE_Y = DEFAULT_UNIT_SCALE_Y;
+
         }
 
         [Category("The Property Change")]
@@ -30,16 +52,17 @@ namespace _04_exercise
         {
             set
             {
-                if (value > 7)
-                {
-                    Hanged?.Invoke(this, EventArgs.Empty);
-                }
-                else
+                if (value >= 0)
                 {
                     mistakes = value;
                     MistakesChanged?.Invoke(this, EventArgs.Empty);
+                    this.Refresh();
                 }
-                this.Refresh();
+
+                if (value >= 7)
+                {
+                    Hanged?.Invoke(this, EventArgs.Empty);
+                }
             }
             get { return mistakes; }
         }
@@ -47,9 +70,9 @@ namespace _04_exercise
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            float thickness = scale(2);
-            float x = scale(0);
-            float y = scale(200);
+            float thickness = scaleX(2);
+            float x = scaleX(0);
+            float y = scaleY(200);
             Graphics g = e.Graphics;
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             Pen pen = new Pen(Color.Black, thickness);
@@ -63,63 +86,63 @@ namespace _04_exercise
                      2 |      |6
                        |    9/ \10  
                        |     
-                 _____________ 1
+                   ________ 1
 
             */
 
             float lineOneStartX = x;
             float lineOneStartY = y;
-            float lineOneEndX = x + scale(100);
+            float lineOneEndX = x + scaleX(100);
             float lineOneEndY = y;
 
-            float lineTwoStartX = lineOneEndX / 2;
+            float lineTwoStartX = x + scaleX(100) / 2;
             float lineTwoStartY = y;
             float lineTwoEndX = lineTwoStartX;
-            float lineTwoEndY = y - scale(200);
+            float lineTwoEndY = y - scaleY(200);
 
-            float lineThreeStartX = lineTwoStartX;
-            float lineThreeStartY = lineTwoEndY + scale(30);
-            float lineThreeEndX = lineTwoStartX + scale(30);
-            float lineThreeEndY = lineTwoEndY;
+            float lineThreeStartX = x + scaleX(100) / 2;
+            float lineThreeStartY = y - scaleY(200) + scaleY(30);
+            float lineThreeEndX = lineThreeStartX + scaleX(30);
+            float lineThreeEndY = y - scaleY(200);
 
-            float lineFourStartX = lineTwoStartX;
-            float lineFourStartY = lineTwoEndY;
-            float lineFourEndX = lineTwoStartX + scale(100);
-            float lineFourEndY = lineTwoEndY;
+            float lineFourStartX = x + scaleX(100) / 2;
+            float lineFourStartY = y - scaleY(200);
+            float lineFourEndX = lineFourStartX + scaleX(100);
+            float lineFourEndY = lineFourStartY;
 
-            float lineFiveStartX = lineFourEndX;
-            float lineFiveStartY = lineFourEndY;
+            float lineFiveStartX = x + (scaleX(100) / 2) + scaleX(100);
+            float lineFiveStartY = y - scaleY(200);
             float lineFiveEndX = lineFiveStartX;
-            float lineFiveEndY = y - scale(180);
+            float lineFiveEndY = y - scaleY(180);
 
-            float headRadio = scale(30);
-            float headStartX = x + scale(150) - (headRadio / 2);
-            float headStartY = y - scale(180);
+            float headRadio = scaleX(30);
+            float headStartX = x + scaleX(150) - (headRadio / 2);
+            float headStartY = y - scaleY(180);
 
-            float lineSixStartX = lineFiveEndX;
-            float lineSixStartY = y - scale(180) + headRadio;
+            float lineSixStartX = x + (scaleX(100) / 2) + scaleX(100);
+            float lineSixStartY = y - scaleY(180) + headRadio;
             float lineSixEndX = lineSixStartX;
-            float lineSixEndY = headStartY + (headRadio / 2) + scale(100);
+            float lineSixEndY = headStartY + (headRadio / 2) + scaleY(100);
 
-            float lineSevenStarX = lineSixEndX;
-            float lineSevenStarY = lineSixStartY + scale(10);
-            float lineSevenEndX = lineSevenStarX - scale(30);
-            float lineSevenEndY = lineSevenStarY + scale(30);
+            float lineSevenStarX = x + (scaleX(100) / 2) + scaleX(100);
+            float lineSevenStarY = y - scaleY(180) + headRadio + scaleY(10);
+            float lineSevenEndX = lineSevenStarX - scaleX(30);
+            float lineSevenEndY = lineSevenStarY + scaleY(30);
 
-            float lineEightStarX = lineSevenStarX;
-            float lineEightStarY = lineSevenStarY;
-            float lineEightEndX = lineSevenStarX + scale(30);
-            float lineEightEndY = lineSevenStarY + scale(30);
+            float lineEightStarX = x + (scaleX(100) / 2) + scaleX(100);
+            float lineEightStarY = y - scaleY(180) + headRadio + scaleY(10);
+            float lineEightEndX = lineEightStarX + scaleX(30);
+            float lineEightEndY = lineEightStarY + scaleY(30);
 
-            float lineNineStarX = lineEightStarX;
-            float lineNineStarY = lineSixEndY - scale(1);
-            float lineNineEndX = lineNineStarX - scale(30);
-            float lineNineEndY = lineNineStarY + scale(30);
+            float lineNineStarX = x + (scaleX(100) / 2) + scaleX(100);
+            float lineNineStarY = headStartY + (headRadio / 2) + scaleY(100) - scaleY(1);
+            float lineNineEndX = lineNineStarX - scaleX(30);
+            float lineNineEndY = lineNineStarY + scaleY(30);
 
-            float lineTenStarX = lineNineStarX;
-            float lineTenStarY = lineNineStarY;
-            float lineTenEndX = lineTenStarX + scale(30);
-            float lineTenEndY = lineTenStarY + scale(30);
+            float lineTenStarX = x + (scaleX(100) / 2) + scaleX(100);
+            float lineTenStarY = headStartY + (headRadio / 2) + scaleY(100) - scaleY(1);
+            float lineTenEndX = lineTenStarX + scaleX(30);
+            float lineTenEndY = lineTenStarY + scaleY(30);
 
 
             switch (Mistakes)
@@ -154,12 +177,21 @@ namespace _04_exercise
             }
         }
 
-        private float scale(float value)
+        private float scaleX(float value)
         {
-            return value * UNIT_SCALE;
+            return value * UNIT_SCALE_X;
         }
 
+        private float scaleY(float value)
+        {
+            return value * UNIT_SCALE_Y;
+        }
 
-
+        private void DrawHanged_SizeChanged(object sender, EventArgs e)
+        {
+            UNIT_SCALE_X = (this.Width * DEFAULT_UNIT_SCALE_X) / DEFAULT_WIDTH;
+            UNIT_SCALE_Y = (this.Height * DEFAULT_UNIT_SCALE_Y) / DEFAULT_HEIGHT;
+            this.Refresh();
+        }
     }
 }
