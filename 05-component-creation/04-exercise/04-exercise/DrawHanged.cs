@@ -177,15 +177,10 @@ namespace _04_exercise
             }
         }
 
-        private float scaleX(float value)
-        {
-            return value * UNIT_SCALE_X;
-        }
+        private float scaleX(float value) => value * UNIT_SCALE_X;
 
-        private float scaleY(float value)
-        {
-            return value * UNIT_SCALE_Y;
-        }
+        private float scaleY(float value) => value * UNIT_SCALE_Y;
+
 
         private void DrawHanged_SizeChanged(object sender, EventArgs e)
         {
