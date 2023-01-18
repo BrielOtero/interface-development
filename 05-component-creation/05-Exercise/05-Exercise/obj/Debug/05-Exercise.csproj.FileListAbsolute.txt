@@ -1,3 +1,11 @@
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\05-Exercise\05-Exercise\bin\Debug\05-Exercise.dll
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\05-Exercise\05-Exercise\bin\Debug\05-Exercise.pdb
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\05-Exercise\05-Exercise\obj\Debug\05-Exercise.csproj.AssemblyReference.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\05-Exercise\05-Exercise\obj\Debug\_05_Exercise.ValidateTextBox.resources
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\05-Exercise\05-Exercise\obj\Debug\05-Exercise.csproj.GenerateResource.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\05-Exercise\05-Exercise\obj\Debug\05-Exercise.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\05-Exercise\05-Exercise\obj\Debug\05-Exercise.dll
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\05-Exercise\05-Exercise\obj\Debug\05-Exercise.pdb
 C:\Users\ID\git\Class\Interface-Development\05-component-creation\05-Exercise\05-Exercise\bin\Debug\05-Exercise.dll
 C:\Users\ID\git\Class\Interface-Development\05-component-creation\05-Exercise\05-Exercise\bin\Debug\05-Exercise.pdb
 C:\Users\ID\git\Class\Interface-Development\05-component-creation\05-Exercise\05-Exercise\obj\Debug\05-Exercise.csproj.AssemblyReference.cache

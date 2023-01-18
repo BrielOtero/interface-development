@@ -15,7 +15,7 @@ namespace _05_Exercise
     {
         private eType type;
         private bool isValid = false;
-       
+
         public ValidateTextBox()
         {
             InitializeComponent();
@@ -51,6 +51,10 @@ namespace _05_Exercise
         }
 
 
+        [Category("The Property change")]
+        [Description("Fired when text property change")]
+        public event EventHandler ValidateTextChange;
+
 
         [Category("Property")]
         [Description("Value of " + nameof(Type))]
@@ -64,11 +68,7 @@ namespace _05_Exercise
             get { return type; }
         }
 
-        [Category("The Property change")]
-        [Description("Fired when the text property change")]
-        public event EventHandler TextChanged;
-
-       protected override void OnPaint(PaintEventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
 
@@ -83,19 +83,20 @@ namespace _05_Exercise
 
         private void txtText_TextChanged(object sender, EventArgs e)
         {
-            TextChanged?.Invoke(this, EventArgs.Empty);
+            ValidateTextChange?.Invoke(this, e);    
             checkText();
         }
 
         private void checkText()
         {
             string text = txtText.Text;
+            text = text.Replace(Environment.NewLine, "");
 
             switch (Type)
             {
                 case eType.NUMERIC:
                     text = text.Trim();
-                    isValid = int.TryParse(text, out int n);
+                    isValid = text.All(x => Char.IsNumber(x));
                     break;
 
                 case eType.TEXTUAL:
