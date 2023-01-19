@@ -6,3 +6,11 @@ C:\Users\ID\git\Class\Interface-Development\05-component-creation\06-exercise\06
 C:\Users\ID\git\Class\Interface-Development\05-component-creation\06-exercise\06-exercise\obj\Debug\06-exercise.pdb
 C:\Users\ID\git\Class\Interface-Development\05-component-creation\06-exercise\06-exercise\obj\Debug\_06_exercise.BarChart.resources
 C:\Users\ID\git\Class\Interface-Development\05-component-creation\06-exercise\06-exercise\obj\Debug\06-exercise.csproj.GenerateResource.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\06-exercise\06-exercise\bin\Debug\06-exercise.dll
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\06-exercise\06-exercise\bin\Debug\06-exercise.pdb
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\06-exercise\06-exercise\obj\Debug\06-exercise.csproj.AssemblyReference.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\06-exercise\06-exercise\obj\Debug\_06_exercise.BarChart.resources
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\06-exercise\06-exercise\obj\Debug\06-exercise.csproj.GenerateResource.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\06-exercise\06-exercise\obj\Debug\06-exercise.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\06-exercise\06-exercise\obj\Debug\06-exercise.dll
+C:\Users\Gabriel\git\Interface-Development\05-component-creation\06-exercise\06-exercise\obj\Debug\06-exercise.pdb

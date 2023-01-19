@@ -7,18 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace _06_exercise
 {
     public partial class BarChart : UserControl
     {
         Color[] colors = new Color[] { Color.Green, Color.Blue, Color.Yellow };
-        List<Double> chartData = new List<Double>() { 5, 2, 4, 5, 9, 3, 5, 6, 11, 1, 5 };
 
+        private List<float> barChartData = new List<float>() { 5, 2, 4, 5, 9, 3, 5, 6, 11, 1, 5, 5, 2, 4, 5, 9, 3, 5, 6, 11, 1, 5 };
         private eBarChartMode barCharMode = eBarChartMode.AUTOMATIC;
         private eBarChartType barChartType = eBarChartType.COLUMNS;
-        private double barChartMaxY = 0;
+        private float barChartMaxY = 0;
         private Color barChartForecolor = Color.Black;
+
+        [Category("Property")]
+        [Description("The that contains the data of the bars")]
+        public List<float> BarChartData
+        {
+            set
+            {
+                barChartData = value;
+                this.Refresh();
+            }
+            get { return barChartData; }
+        }
 
         [Category("Property")]
         [Description("The property that change bar chart mode")]
@@ -46,7 +59,7 @@ namespace _06_exercise
 
         [Category("Property")]
         [Description("The maximum property of Y in " + nameof(BarChart) + " with mode " + nameof(eBarChartMode.MANUAL))]
-        public double BarChartMaxY
+        public float BarChartMaxY
         {
             set
             {
@@ -71,8 +84,8 @@ namespace _06_exercise
         private float DEFAULT_UNIT_SCALE_X = 1f;
         private float DEFAULT_UNIT_SCALE_Y = 1f;
 
-        private int DEFAULT_WIDTH;
-        private int DEFAULT_HEIGHT;
+        private float DEFAULT_WIDTH;
+        private float DEFAULT_HEIGHT;
 
         float UNIT_SCALE_X;
         float UNIT_SCALE_Y;
@@ -83,16 +96,19 @@ namespace _06_exercise
             UNIT_SCALE_X = DEFAULT_UNIT_SCALE_X;
             UNIT_SCALE_Y = DEFAULT_UNIT_SCALE_Y;
 
-            DEFAULT_WIDTH = (int)((scaleX(chartData.Count) * 2) + scaleX(5));
-            DEFAULT_HEIGHT = (int)(scaleY(chartData.Max()) + scaleY(3));
+            DEFAULT_WIDTH = (scaleX(barChartData.Count) * 2) + scaleX(5);
+            DEFAULT_HEIGHT = scaleY(barChartData.Max()) + scaleY(3);
 
-            this.Width = DEFAULT_WIDTH;
-            this.Height = DEFAULT_HEIGHT;
+            this.Width = (int)DEFAULT_WIDTH;
+            this.Height = (int)DEFAULT_HEIGHT;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+
+            if (BarChartData.Count == 0) return;
+
             Graphics g = e.Graphics;
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             Pen pen;
@@ -100,78 +116,84 @@ namespace _06_exercise
             float margin = scaleX(2);
             float thickness = scaleX(2);
 
-            float start_x = margin;
+            float start_x = margin + scaleX(2);
             float start_y;
 
-            float end_x = start_x + margin;
+            float end_x = start_x;
             float end_y;
 
             float barY;
             float maxY = 0;
-            float maxChartDataValue = scaleY(chartData.Max());
+            float maxChartDataValue = scaleY(BarChartData.Max());
 
             Font font = new Font("Sans Serif", margin / 2);
             g.RotateTransform(90);
             g.DrawString("eje Y", font, new SolidBrush(Color.Black), maxChartDataValue / 2, -margin);
             g.ResetTransform();
 
-            g.DrawString("eje X", font, new SolidBrush(Color.Black), chartData.Count * margin / 2, maxChartDataValue);
+            g.DrawString("eje X", font, new SolidBrush(Color.Black), BarChartData.Count * margin / 2, maxChartDataValue);
             g.ResetTransform();
 
 
-            switch (barCharMode)
+            switch (barChartType)
             {
-                case eBarChartMode.AUTOMATIC:
-                    maxY = maxChartDataValue + 1;
+                case eBarChartType.COLUMNS:
+
+                    switch (barCharMode)
+                    {
+                        case eBarChartMode.AUTOMATIC:
+                            maxY = maxChartDataValue + 1;
+                            break;
+
+                        case eBarChartMode.MANUAL:
+                            maxY = scaleY(barChartMaxY);
+                            break;
+                    }
+
+                    for (int i = 0; i < BarChartData.Count; i++)
+                    {
+                        barY = scaleY(BarChartData[i]);
+                        start_y = maxChartDataValue;
+                        end_y = maxChartDataValue - (barY > maxY ? maxY : barY);
+
+
+                        pen = new Pen(colors[i % 3], thickness);
+                        g.DrawLine(pen, start_x, start_y, end_x, end_y);
+
+                        if (end_y != barY)
+                        {
+                            start_y = end_y;
+                            end_y = maxChartDataValue - barY;
+                            pen = new Pen(Color.Red, thickness);
+                            g.DrawLine(pen, start_x, start_y, end_x, end_y);
+                        }
+
+                        start_x += margin;
+                        end_x = start_x;
+                    }
                     break;
 
-                case eBarChartMode.MANUAL:
-                    maxY = scaleY(barChartMaxY);
+                case eBarChartType.LINE:
+
+                    end_x = start_x + margin;
+
+                    for (int i = 0; i < BarChartData.Count - 1; i++)
+                    {
+                        start_y = maxChartDataValue - scaleY(BarChartData[i]);
+                        end_y = maxChartDataValue - scaleY(BarChartData[i + 1]);
+
+                        g.DrawLine(new Pen(new SolidBrush(BarChartForecolor)), start_x, start_y, end_x, end_y);
+
+                        start_x += margin;
+                        end_x = start_x + margin;
+                    }
                     break;
             }
-
-            for (int i = 0; i < chartData.Count; i++)
-            {
-                barY = scaleY(chartData[i]);
-                start_y = maxChartDataValue;
-                end_y = maxChartDataValue - (barY > maxY ? maxY : barY);
-
-
-                pen = new Pen(colors[i % 3], thickness);
-                g.DrawLine(pen, start_x, start_y, end_x, end_y);
-
-                if (end_y != barY)
-                {
-                    start_y = end_y;
-                    end_y = maxChartDataValue - barY;
-                    pen = new Pen(Color.Red, thickness);
-                    g.DrawLine(pen, start_x, start_y, end_x, end_y);
-                }
-
-                start_x += margin;
-                end_x += start_x + margin;
-            }
-
-            //for (int i = 0; i < chartData.Count - 1; i++)
-            //{
-            //    start_y = maxChartDataValue - scaleY(chartData[i]);
-            //    end_y = maxChartDataValue - scaleY(chartData[i + 1]);
-
-            //    g.DrawLine(new Pen(new SolidBrush(Color.Black)), start_x, start_y, end_x, end_y);
-
-            //    start_x += margin;
-            //    end_x += margin;
-            //}
-
-
-
-
-
         }
 
 
-        private float scaleX(double value) => UNIT_SCALE_X * (float)value;
-        private float scaleY(double value) => UNIT_SCALE_Y * (float)value;
+        private float scaleX(float value) => UNIT_SCALE_X * value;
+        private float scaleY(float value) => UNIT_SCALE_Y * value;
 
         private void BarChart_SizeChanged(object sender, EventArgs e)
         {

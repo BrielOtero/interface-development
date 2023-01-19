@@ -28,35 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.barChart1 = new _06_exercise.BarChart();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.tsmiMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiConfigure = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // barChart1
+            // menuStrip1
             // 
-            this.barChart1.BarCharMode = _06_exercise.eBarChartMode.MANUAL;
-            this.barChart1.BarChartForecolor = System.Drawing.Color.Black;
-            this.barChart1.BarChartMaxY = 0D;
-            this.barChart1.BarCharType = _06_exercise.eBarChartType.COLUMNS;
-            this.barChart1.Location = new System.Drawing.Point(69, 62);
-            this.barChart1.Name = "barChart1";
-            this.barChart1.Size = new System.Drawing.Size(491, 238);
-            this.barChart1.TabIndex = 0;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiMenu});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // tsmiMenu
+            // 
+            this.tsmiMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiOpen,
+            this.tsmiConfigure,
+            this.toolStripSeparator1,
+            this.tsmiExit});
+            this.tsmiMenu.Name = "tsmiMenu";
+            this.tsmiMenu.Size = new System.Drawing.Size(50, 20);
+            this.tsmiMenu.Text = "&Menu";
+            // 
+            // tsmiOpen
+            // 
+            this.tsmiOpen.Name = "tsmiOpen";
+            this.tsmiOpen.Size = new System.Drawing.Size(180, 22);
+            this.tsmiOpen.Text = "&Open";
+            // 
+            // tsmiConfigure
+            // 
+            this.tsmiConfigure.Name = "tsmiConfigure";
+            this.tsmiConfigure.Size = new System.Drawing.Size(180, 22);
+            this.tsmiConfigure.Text = "&Configure";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // tsmiExit
+            // 
+            this.tsmiExit.Name = "tsmiExit";
+            this.tsmiExit.Size = new System.Drawing.Size(180, 22);
+            this.tsmiExit.Text = "&Exit";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.barChart1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private _06_exercise.BarChart barChart1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiMenu;
+        private System.Windows.Forms.ToolStripMenuItem tsmiOpen;
+        private System.Windows.Forms.ToolStripMenuItem tsmiConfigure;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiExit;
     }
 }
 
