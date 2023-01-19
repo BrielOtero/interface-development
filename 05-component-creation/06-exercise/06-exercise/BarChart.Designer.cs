@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "BarChart";
             this.Size = new System.Drawing.Size(800, 450);
-            this.SizeChanged += new System.EventHandler(this.BarChart_SizeChanged);
+            this.SizeChanged += new System.EventHandler(this.barChart_SizeChanged);
             this.ResumeLayout(false);
 
         }

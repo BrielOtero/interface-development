@@ -1,0 +1,68 @@
+[
+    {
+        "Name": "Test1",
+        "TextAxeX": "X",
+        "TextAxeY": "Y",
+        "BarChartData":[4,1,8,4,2,7,4,1]
+    },
+    {
+        "Name": "Test2",
+        "TextAxeX": "XXX",
+        "TextAxeY": "YYY",
+        "BarChartData":[1,2,4,5,6,2,4,5]
+    },
+    {
+        "Name": "Test3",
+        "TextAxeX": "Money",
+        "TextAxeY": "Time",
+        "BarChartData":[5,1,5,3,1,4,1,6]
+    },
+    {
+        "Name": "Test3",
+        "TextAxeX": "Money",
+        "TextAxeY": "Time",
+        "BarChartData":[5,1,5,3,1,4,1,6]
+    },
+    {
+        "Name": "Test3",
+        "TextAxeX": "Money",
+        "TextAxeY": "Time",
+        "BarChartData":[5,1,5,3,1,4,1,6]
+    },
+    {
+        "Name": "Test3",
+        "TextAxeX": "Money",
+        "TextAxeY": "Time",
+        "BarChartData":[5,1,5,3,1,4,1,6]
+    },
+    {
+        "Name": "Test3",
+        "TextAxeX": "Money",
+        "TextAxeY": "Time",
+        "BarChartData":[5,1,5,3,1,4,1,6]
+    },
+    {
+        "Name": "Test3",
+        "TextAxeX": "Money",
+        "TextAxeY": "Time",
+        "BarChartData":[5,1,5,3,1,4,1,6]
+    },
+    {
+        "Name": "Test3",
+        "TextAxeX": "Money",
+        "TextAxeY": "Time",
+        "BarChartData":[5,1,5,3,1,4,1,6]
+    },
+    {
+        "Name": "Test3",
+        "TextAxeX": "Money",
+        "TextAxeY": "Time",
+        "BarChartData":[5,1,5,3,1,4,1,6]
+    },
+    {
+        "Name": "Test3",
+        "TextAxeX": "Money",
+        "TextAxeY": "Time",
+        "BarChartData":[5,1,5,3,1,4,1,6]
+    }
+]

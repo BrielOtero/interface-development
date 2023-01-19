@@ -16,10 +16,13 @@ namespace _06_exercise
         Color[] colors = new Color[] { Color.Green, Color.Blue, Color.Yellow };
 
         private List<float> barChartData = new List<float>() { 5, 2, 4, 5, 9, 3, 5, 6, 11, 1, 5, 5, 2, 4, 5, 9, 3, 5, 6, 11, 1, 5 };
-        private eBarChartMode barCharMode = eBarChartMode.AUTOMATIC;
+        private eBarChartMode barChartMode = eBarChartMode.AUTOMATIC;
         private eBarChartType barChartType = eBarChartType.COLUMNS;
         private float barChartMaxY = 0;
-        private Color barChartForecolor = Color.Black;
+        private Color barChartLineForecolor = Color.Black;
+        private string textAxisX = "axis X";
+        private string textAxisY = "axis Y";
+
 
         [Category("Property")]
         [Description("The that contains the data of the bars")]
@@ -39,10 +42,10 @@ namespace _06_exercise
         {
             set
             {
-                barCharMode = value;
+                barChartMode = value;
                 this.Refresh();
             }
-            get { return barCharMode; }
+            get { return barChartMode; }
         }
 
         [Category("Property")]
@@ -71,14 +74,38 @@ namespace _06_exercise
 
         [Category("Property")]
         [Description("Property color that changes the color of the line")]
-        public Color BarChartForecolor
+        public Color BarChartLineForecolor
         {
             set
             {
-                this.barChartForecolor = value;
+                this.barChartLineForecolor = value;
                 this.Refresh();
             }
-            get { return this.barChartForecolor; }
+            get { return this.barChartLineForecolor; }
+        }
+
+        [Category("Property")]
+        [Description("The property that shows as info in axe x")]
+        public string TextAxisX
+        {
+            set
+            {
+                textAxisX = value;
+                this.Refresh();
+            }
+            get { return textAxisX; }
+        }
+
+        [Category("Property")]
+        [Description("The property that shows as info in axe y")]
+        public string TextAxisY
+        {
+            set
+            {
+                textAxisY = value;
+                this.Refresh();
+            }
+            get { return textAxisY; }
         }
 
         private float DEFAULT_UNIT_SCALE_X = 1f;
@@ -128,10 +155,10 @@ namespace _06_exercise
 
             Font font = new Font("Sans Serif", margin / 2);
             g.RotateTransform(90);
-            g.DrawString("eje Y", font, new SolidBrush(Color.Black), maxChartDataValue / 2, -margin);
+            g.DrawString(TextAxisY, font, new SolidBrush(Color.Black), maxChartDataValue / 2, -margin);
             g.ResetTransform();
 
-            g.DrawString("eje X", font, new SolidBrush(Color.Black), BarChartData.Count * margin / 2, maxChartDataValue);
+            g.DrawString(TextAxisX, font, new SolidBrush(Color.Black), BarChartData.Count * margin / 2, maxChartDataValue);
             g.ResetTransform();
 
 
@@ -139,7 +166,7 @@ namespace _06_exercise
             {
                 case eBarChartType.COLUMNS:
 
-                    switch (barCharMode)
+                    switch (barChartMode)
                     {
                         case eBarChartMode.AUTOMATIC:
                             maxY = maxChartDataValue + 1;
@@ -182,7 +209,7 @@ namespace _06_exercise
                         start_y = maxChartDataValue - scaleY(BarChartData[i]);
                         end_y = maxChartDataValue - scaleY(BarChartData[i + 1]);
 
-                        g.DrawLine(new Pen(new SolidBrush(BarChartForecolor)), start_x, start_y, end_x, end_y);
+                        g.DrawLine(new Pen(new SolidBrush(BarChartLineForecolor)), start_x, start_y, end_x, end_y);
 
                         start_x += margin;
                         end_x = start_x + margin;
@@ -195,7 +222,7 @@ namespace _06_exercise
         private float scaleX(float value) => UNIT_SCALE_X * value;
         private float scaleY(float value) => UNIT_SCALE_Y * value;
 
-        private void BarChart_SizeChanged(object sender, EventArgs e)
+        private void barChart_SizeChanged(object sender, EventArgs e)
         {
 
             UNIT_SCALE_X = (this.Width * DEFAULT_UNIT_SCALE_X) / DEFAULT_WIDTH;
