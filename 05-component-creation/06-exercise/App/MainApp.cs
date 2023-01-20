@@ -15,121 +15,140 @@ using System.Windows.Forms;
 
 namespace App
 {
-    public partial class MainApp : Form
-    {
-        FileInfo file = null;
-        List<Chart> chartsData = null;
-        List<BarChart> charts = new List<BarChart>();
-        Config config = null;
-        public MainApp()
-        {
-            InitializeComponent();
-            try
+            public partial class MainApp : Form
             {
-                config = JsonConvert.DeserializeObject<Config>(File.ReadAllText(Path.Combine(Environment.GetEnvironmentVariable("APPDATA"), "BarChartConfig.json")));
+                        private List<Chart> chartsData = null;
+                        private List<BarChart> charts = new List<BarChart>();
+                        private Config config = null;
+                        readonly string CONFIG_PATH = Path.Combine(Environment.GetEnvironmentVariable("APPDATA"), "BarChartConfig.json");
+                        public MainApp()
+                        {
+                                    InitializeComponent();
+                                    loadConfig();
+                        }
+
+                        private void loadConfig()
+                        {
+                                    try
+                                    {
+                                                config = JsonConvert.DeserializeObject<Config>(File.ReadAllText(CONFIG_PATH));
+                                    }
+                                    catch (Exception e)
+                                    {
+                                                config = new Config();
+                                                Debug.WriteLine(e.Message);
+                                    }
+                        }
+
+                        private void saveConfig()
+                        {
+                                    try
+                                    {
+                                                string configFile = JsonConvert.SerializeObject(config);
+                                                File.WriteAllText(CONFIG_PATH, configFile);
+                                    }
+                                    catch (Exception e)
+                                    {
+                                                Trace.WriteLine(e.Message);
+                                                MessageBox.Show(this, "The program can't save the config", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    }
+
+                        }
+
+                        private void createCharts()
+                        {
+                                    panel.Controls.Clear();
+                                    Point position = new Point(0, 0);
+                                    int i = 1;
+                                    charts.ForEach(x =>
+                                    {
+                                                panel.Controls.Add(lblChartTitle(x.Name, position));
+                                                position.Y += 10;
+                                                x.Location = position;
+                                                x.BarChartLineForecolor = config.LineColor;
+                                                x.BarCharType = config.ViewType;
+                                                x.Width = 300;
+                                                x.Height = 150;
+                                                if (i % config.Columns == 0)
+                                                {
+                                                            position.X = 0;
+                                                            position.Y += x.Height;
+                                                }
+                                                else
+                                                {
+                                                            position.X += x.Width;
+                                                }
+                                                i++;
+                                                panel.Controls.Add(x);
+                                    });
+                        }
+
+                        private static Label lblChartTitle(string title, Point position)
+                        {
+                                    Label label = new Label();
+                                    label.Text = title;
+                                    label.Location = position;
+                                    label.Width = 100;
+                                    label.Height = 50;
+                                    return label;
+                        }
+
+                        private void tsmiOpen_Click(object sender, EventArgs e)
+                        {
+                                    //OpenFileDialog ofd = new OpenFileDialog();
+                                    //if (ofd.ShowDialog() == DialogResult.OK)
+                                    //{
+                                    //try
+                                    //{
+                                    //file = new FileInfo(ofd.FileName);
+                                    //chartsData = JsonConvert.DeserializeObject<List<Chart>>(File.ReadAllText(ofd.FileName));
+                                    chartsData = JsonConvert.DeserializeObject<List<Chart>>(File.ReadAllText("C:\\Users\\Gabriel\\git\\Interface-Development\\05-component-creation\\06-exercise\\charts.json"));
+
+                                    //}
+                                    //catch (UnauthorizedAccessException ua)
+                                    //{
+                                    //    Console.WriteLine(ua.Message);
+                                    //    return;
+                                    //}
+                                    //catch (Exception ex)
+                                    //{
+                                    //    Console.WriteLine(ex.Message);
+                                    //    return;
+                                    //}
+
+                                    charts = new List<BarChart>();
+
+                                    chartsData.ForEach(x =>
+                                    {
+                                                BarChart barChart = new BarChart();
+                                                barChart.BarChartData = x.BarChartData;
+                                                barChart.TextAxisX = x.TextAxeX;
+                                                barChart.TextAxisY = x.TextAxeY;
+                                                charts.Add(barChart);
+                                    });
+
+                                    Debug.WriteLine(charts.Count);
+
+                                    createCharts();
+
+
+                                    //}
+                        }
+
+                        private void tsmiConfigure_Click(object sender, EventArgs e)
+                        {
+                                    Configuration configuration = new Configuration(config);
+                                    if (configuration.ShowDialog() == DialogResult.Yes)
+                                    {
+                                                config = configuration.config;
+                                                saveConfig();
+                                                createCharts();
+                                    }
+                        }
+
+                        private void tsmiExit_Click(object sender, EventArgs e)
+                        {
+                                    this.Close();
+                        }
             }
-            catch (Exception e)
-            {
-                config = new Config();
-                Debug.WriteLine(e.Message);
-            }
-
-            loadConfig();
-
-        }
-
-        private void loadConfig()
-        {
-            Debug.WriteLine(config.LineColor);
-            Debug.WriteLine(config.ViewType);
-            charts.ForEach(x =>
-            {
-                x.BarChartLineForecolor = config.LineColor;
-                x.BarCharType = config.ViewType;
-            });
-
-            panel.Controls.Clear();
-            panel.Controls.AddRange(charts.ToArray());
-        }
-
-        private void tsmiOpen_Click(object sender, EventArgs e)
-        {
-            //OpenFileDialog ofd = new OpenFileDialog();
-            //if (ofd.ShowDialog() == DialogResult.OK)
-            //{
-            //try
-            //{
-            //file = new FileInfo(ofd.FileName);
-            //chartsData = JsonConvert.DeserializeObject<List<Chart>>(File.ReadAllText(ofd.FileName));
-            chartsData = JsonConvert.DeserializeObject<List<Chart>>(File.ReadAllText("C:\\Users\\ID\\git\\Class\\Interface-Development\\05-component-creation\\06-exercise\\charts.json"));
-
-            //}
-            //catch (UnauthorizedAccessException ua)
-            //{
-            //    Console.WriteLine(ua.Message);
-            //    return;
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //    return;
-            //}
-
-            charts = new List<BarChart>();
-
-            chartsData.ForEach(x =>
-            {
-                BarChart barChart = new BarChart();
-                barChart.BarChartData = x.BarChartData;
-                barChart.TextAxisX = x.TextAxeX;
-                barChart.TextAxisY = x.TextAxeY;
-                charts.Add(barChart);
-            });
-
-            Debug.WriteLine(charts.Count);
-
-            Point position = new Point(0, 0);
-
-            for (int i = 1; i <= charts.Count; i++)
-            {
-                charts[i-1].Location = position;
-                charts[i-1].Width = 400;
-                charts[i-1].Height = 300;
-
-                if (i % config.Columns == 0)
-                {
-                    position.Y += charts[i-1].Height + 5;
-                    position.X = 0;
-                }
-                else
-                {
-                    position.X += charts[i-1].Width;
-                }
-
-            }
-
-            panel.Controls.AddRange(charts.ToArray());
-
-            loadConfig();
-
-
-            //}
-        }
-
-        private void tsmiConfigure_Click(object sender, EventArgs e)
-        {
-            Configuration configuration = new Configuration(config);
-            if (configuration.ShowDialog() == DialogResult.Yes)
-            {
-                config = configuration.config;
-                loadConfig();
-                Debug.WriteLine("DialogResult Yes");
-            }
-        }
-
-        private void tsmiExit_Click(object sender, EventArgs e)
-        {
-
-        }
-    }
 }

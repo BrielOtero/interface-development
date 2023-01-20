@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace App
 {
-    public class Config
-    {
-        public Config()
-        {
-            Columns = 5;
-            ViewType = eBarChartType.COLUMNS;
-            LineColor = Color.Black;
-        }
+            public class Config
+            {
+                        public Config()
+                        {
+                                    Columns = 2;
+                                    ViewType = eBarChartType.COLUMNS;
+                                    LineColor = Color.Black;
+                        }
 
-        public int Columns { set; get; }
-        public eBarChartType ViewType { set; get; }
-        public Color LineColor { set; get; }
-    }
+                        public int Columns { set; get; }
+                        public eBarChartType ViewType { set; get; }
+                        public Color LineColor { set; get; }
+            }
 }
