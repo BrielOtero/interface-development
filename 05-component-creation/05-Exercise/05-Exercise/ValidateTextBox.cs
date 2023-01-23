@@ -75,10 +75,9 @@ namespace _05_Exercise
             Graphics g = e.Graphics;
             Color penColor = isValid ? Color.Green : Color.Red;
             int thickness = 20;
-            Pen pen = new Pen(penColor, thickness);
 
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            g.DrawRectangle(pen, 5, 5, this.Width - 5, this.Height - 5);
+            g.FillRectangle(new SolidBrush(penColor), 5, 5, txtText.Width +thickness /2, txtText.Height + thickness / 2);
         }
 
         private void txtText_TextChanged(object sender, EventArgs e)

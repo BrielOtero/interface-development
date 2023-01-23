@@ -15,7 +15,7 @@ namespace _06_exercise
             {
                         Color[] colors = new Color[] { Color.Green, Color.Blue, Color.Yellow };
 
-                        private List<float> barChartData = new List<float>() { 5, 2, 4, 5, 9, 3, 5, 6, 11, 1, 5, 5, 2, 4, 5, 9, 3, 5, 6, 11, 1, 5 };
+                        private List<float> barChartData = new List<float>() { 5, 2, 4, 5, 9, 3, 5 };
                         private eBarChartMode barChartMode = eBarChartMode.AUTOMATIC;
                         private eBarChartType barChartType = eBarChartType.COLUMNS;
                         private float barChartMaxY = 0;
@@ -31,6 +31,7 @@ namespace _06_exercise
                                     set
                                     {
                                                 barChartData = value;
+                                                setDefaultSize();
                                                 this.Refresh();
                                     }
                                     get { return barChartData; }
@@ -108,11 +109,10 @@ namespace _06_exercise
                                     get { return textAxisY; }
                         }
 
-                        private float DEFAULT_UNIT_SCALE_X = 1f;
-                        private float DEFAULT_UNIT_SCALE_Y = 1f;
 
-                        private float DEFAULT_WIDTH;
-                        private float DEFAULT_HEIGHT;
+
+                        private float DEFAULT_WIDTH = 500;
+                        private float DEFAULT_HEIGHT = 300;
 
                         float UNIT_SCALE_X;
                         float UNIT_SCALE_Y;
@@ -120,20 +120,23 @@ namespace _06_exercise
                         public BarChart()
                         {
                                     InitializeComponent();
-                                    UNIT_SCALE_X = DEFAULT_UNIT_SCALE_X;
-                                    UNIT_SCALE_Y = DEFAULT_UNIT_SCALE_Y;
-
-                                    DEFAULT_WIDTH = (float)((scaleX(barChartData.Count) * 1.1));
-                                    DEFAULT_HEIGHT = scaleY(barChartData.Max());
+                                    setDefaultSize();
 
                                     this.Width = (int)DEFAULT_WIDTH;
                                     this.Height = (int)DEFAULT_HEIGHT;
+                        }
+
+                        public void setDefaultSize()
+                        {
+                                    UNIT_SCALE_X = (float)(this.Width / (barChartData.Count * 2.5));
+                                    UNIT_SCALE_Y = (float)(this.Height / (barChartData.Max() * 1.2));
                         }
 
                         protected override void OnPaint(PaintEventArgs e)
                         {
                                     base.OnPaint(e);
 
+                                    setDefaultSize();
                                     if (BarChartData.Count == 0) return;
 
                                     Graphics g = e.Graphics;
@@ -224,9 +227,7 @@ namespace _06_exercise
 
                         private void barChart_SizeChanged(object sender, EventArgs e)
                         {
-
-                                    UNIT_SCALE_X = (this.Width * DEFAULT_UNIT_SCALE_X) / DEFAULT_WIDTH;
-                                    UNIT_SCALE_Y = (this.Height * DEFAULT_UNIT_SCALE_Y) / DEFAULT_HEIGHT;
+                                    setDefaultSize();
                                     this.Refresh();
                         }
             }

@@ -107,6 +107,7 @@
                                     this.Name = "MainApp";
                                     this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                                     this.Text = "Chart Bar View";
+                                    this.Load += new System.EventHandler(this.MainApp_Load);
                                     this.menuStrip1.ResumeLayout(false);
                                     this.menuStrip1.PerformLayout();
                                     this.ResumeLayout(false);
@@ -123,6 +124,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem tsmiExit;
         private System.Windows.Forms.Panel panel;
-    }
+            }
 }
 

@@ -16,6 +16,7 @@ namespace App
             public partial class Configuration : Form
             {
                         private List<Color> colors = new List<Color>() { Color.Black, Color.Red, Color.Blue, Color.Green, Color.Yellow };
+
                         public Config config;
 
                         public Configuration(Config config)
@@ -29,12 +30,16 @@ namespace App
                                     if (config.ViewType == eBarChartType.COLUMNS)
                                     {
                                                 rbColumns.Checked = true;
+                                                lblLineColorInfo.Visible = false;
+                                                lstColors.Visible = false;
+
+
                                     }
                                     else
                                     {
+                                                lblLineColorInfo.Visible = true;
+                                                lstColors.Visible = true;
                                                 rbLine.Checked = true;
-                                                lblLineColorInfo.Visible = false;
-                                                lstColors.Visible = false;
                                     }
 
                                     for (int i = 1; i <= 5; i++)

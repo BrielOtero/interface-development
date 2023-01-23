@@ -95,44 +95,44 @@ namespace App
 
                         private void tsmiOpen_Click(object sender, EventArgs e)
                         {
-                                    //OpenFileDialog ofd = new OpenFileDialog();
-                                    //if (ofd.ShowDialog() == DialogResult.OK)
-                                    //{
-                                    //try
-                                    //{
-                                    //file = new FileInfo(ofd.FileName);
-                                    //chartsData = JsonConvert.DeserializeObject<List<Chart>>(File.ReadAllText(ofd.FileName));
-                                    chartsData = JsonConvert.DeserializeObject<List<Chart>>(File.ReadAllText("C:\\Users\\Gabriel\\git\\Interface-Development\\05-component-creation\\06-exercise\\charts.json"));
-
-                                    //}
-                                    //catch (UnauthorizedAccessException ua)
-                                    //{
-                                    //    Console.WriteLine(ua.Message);
-                                    //    return;
-                                    //}
-                                    //catch (Exception ex)
-                                    //{
-                                    //    Console.WriteLine(ex.Message);
-                                    //    return;
-                                    //}
-
-                                    charts = new List<BarChart>();
-
-                                    chartsData.ForEach(x =>
+                                    OpenFileDialog ofd = new OpenFileDialog();
+                                    ofd.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
+                                    if (ofd.ShowDialog() == DialogResult.OK)
                                     {
-                                                BarChart barChart = new BarChart();
-                                                barChart.BarChartData = x.BarChartData;
-                                                barChart.TextAxisX = x.TextAxeX;
-                                                barChart.TextAxisY = x.TextAxeY;
-                                                charts.Add(barChart);
-                                    });
+                                                try
+                                                {
+                                                            chartsData = JsonConvert.DeserializeObject<List<Chart>>(File.ReadAllText(ofd.FileName));
 
-                                    Debug.WriteLine(charts.Count);
+                                                }
+                                                catch (UnauthorizedAccessException ua)
+                                                {
+                                                            Console.WriteLine(ua.Message);
+                                                            MessageBox.Show("File not compatible","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                            return;
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                            Console.WriteLine(ex.Message);
+                                                            MessageBox.Show("File not compatible", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                            return;
+                                                }
 
-                                    createCharts();
+                                                charts = new List<BarChart>();
 
+                                                chartsData.ForEach(x =>
+                                                {
+                                                            BarChart barChart = new BarChart();
+                                                            barChart.Name = x.Name;
+                                                            barChart.BarChartData = x.BarChartData;
+                                                            barChart.TextAxisX = x.TextAxeX;
+                                                            barChart.TextAxisY = x.TextAxeY;
+                                                            charts.Add(barChart);
+                                                });
 
-                                    //}
+                                                Debug.WriteLine(charts.Count);
+
+                                                createCharts();
+                                    }
                         }
 
                         private void tsmiConfigure_Click(object sender, EventArgs e)
@@ -149,6 +149,11 @@ namespace App
                         private void tsmiExit_Click(object sender, EventArgs e)
                         {
                                     this.Close();
+                        }
+
+                        private void MainApp_Load(object sender, EventArgs e)
+                        {
+
                         }
             }
 }
