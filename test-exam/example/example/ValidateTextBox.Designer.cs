@@ -1,6 +1,6 @@
 ﻿namespace example
 {
-    partial class UserControl1
+    partial class ValidateTextBox
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,11 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.txtBox = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // txtBox
+            // 
+            this.txtBox.Location = new System.Drawing.Point(10, 10);
+            this.txtBox.Name = "txtBox";
+            this.txtBox.Size = new System.Drawing.Size(100, 20);
+            this.txtBox.TabIndex = 0;
+            // 
+            // ValidateTextBox
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtBox);
+            this.Name = "ValidateTextBox";
+            this.Size = new System.Drawing.Size(150, 100);
+            this.SizeChanged += new System.EventHandler(this.ValidateTextBox_SizeChanged);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox txtBox;
     }
 }
